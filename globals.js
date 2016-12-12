@@ -1,0 +1,1 @@
+exports.connectionString = "postgres://localhost:5432/minipos";
