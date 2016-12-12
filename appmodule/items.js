@@ -3,6 +3,8 @@ var rs = require("./util/resp.js");
 //Test Comment
 var items = module.exports = {};
 
+/* Items */
+
 items.getItems = function getItems(req, res, done) {
     db.callProcedure("select pos.get_items($1,$2::json);", ['items', req.body], function(data) {
         rs.resp(res, 200, data.rows);
