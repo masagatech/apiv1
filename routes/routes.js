@@ -1,4 +1,5 @@
 var items = require('../appmodule/items.js');
+var emp = require('../appmodule/employee.js');
 
 
 var appRouter = function(app) {
@@ -16,12 +17,7 @@ var appRouter = function(app) {
     //#################### Items /  ##########################	
 
     app.post("/getItems", items.getItems);
-    app.post("/getItemGrid", items.getItemsGrid);
-    app.post("/getSideItems", items.getSideItems);
-    app.post("/getComboItems", items.getComboItems);
-    app.post("/createItems", items.createItems);
-    app.post("/createCombo", items.createCombo);
-    app.post("/getComboGrid", items.getComboGrid);
+    app.post("/getEmployee", emp.getEmployee);
 
 
     //#############################################################################################

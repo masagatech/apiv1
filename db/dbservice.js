@@ -1,7 +1,8 @@
+var globals = require("../globals.js");
 var pg = require("pg");
 var db = module.exports = {};
-db.constr = 'postgres://postgres:123@192.168.1.103:5432/minipos';
 
+db.constr = globals.constr();
 
 db.callProcedure = function callProcedure(funName, data, callback, errcallback, refcount) {
 
