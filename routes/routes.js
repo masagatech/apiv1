@@ -1,5 +1,8 @@
 var items = require('../appmodule/items.js');
 var emp = require('../appmodule/employee.js');
+var acgroup = require('../appmodule/acgroup.js');
+var headmenu = require('../appmodule/menu.js');
+
 
 
 var appRouter = function(app) {
@@ -15,11 +18,14 @@ var appRouter = function(app) {
 
     //#############################################################################################
     //#################### Items /  ##########################	
-
     app.post("/getItems", items.getItems);
     app.post("/getEmployee", emp.getEmployee);
-
-
+    //#############################################################################################
+    //#################### ac group  /  ##########################	
+    app.post("/getAcgroup", acgroup.getAcgroup);
+    //#############################################################################################
+      //#################### head menu  /  ##########################	
+    app.post("/getmenu", headmenu.getmenu);
     //#############################################################################################
 
     //#################### API TEST /  ##########################	

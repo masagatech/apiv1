@@ -5,5 +5,5 @@ global.schema =  function schema(params) {
 };
 
 global.constr =  function constr() {
-    return 'postgres://postgres:123@192.168.1.103:5432/erpdb';
+    return 'postgres://postgres:123@192.168.1.104:5432/erpdb';
 };
