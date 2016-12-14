@@ -11,3 +11,11 @@ employee.getEmployee = function getEmployee(req, res, done) {
         rs.resp(res, 401, "error : " + err);
     }, 1)
 }
+
+employee.saveEmployee = function saveEmployee(req, res, done) {
+    db.callFunction("select " + globals.schema("funsave_employee") + "($1::json);", [req.body], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    })
+}
