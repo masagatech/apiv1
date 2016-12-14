@@ -11,3 +11,19 @@ user.getLogin = function getLogin(req, res, done) {
         rs.resp(res, 401, "error : " + err);
     }, 1)
 }
+
+user.getUsers = function getUsers(req, res, done) {
+    db.callProcedure("select " + globals.schema("funget_user") + "($1,$2::json);", ['users', req.body], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    }, 1)
+}
+
+user.saveUsers = function saveUsers(req, res, done) {
+    db.callFunction("select " + globals.schema("funsave_user") + "($1::json);", [req.body], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    })
+}
