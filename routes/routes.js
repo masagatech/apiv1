@@ -4,6 +4,7 @@ var common = require('../appmodule/common.js');
 var fy = require('../appmodule/fy.js');
 var user = require('../appmodule/user.js');
 var emp = require('../appmodule/employee.js');
+var company = require('../appmodule/company.js');
 var acgroup = require('../appmodule/acgroup.js');
 
 var appRouter = function(app) {
@@ -38,6 +39,11 @@ var appRouter = function(app) {
     //#################### Employee / ##########################
     app.post("/getEmployee", emp.getEmployee);
     app.post("/saveEmployee", emp.saveEmployee);
+    //#############################################################################################
+
+    //#################### Company / ##########################
+    app.post("/getCompany", company.getCompany);
+    app.post("/saveCompany", company.saveCompany);
     //#############################################################################################
 
     //#################### Ac Group / ##########################
