@@ -1,8 +1,9 @@
 var items = require('../appmodule/items.js');
-var headmenu = require('../appmodule/menu.js');
+var menu = require('../appmodule/menu.js');
 var common = require('../appmodule/common.js');
 var fy = require('../appmodule/fy.js');
 var user = require('../appmodule/user.js');
+var ur = require('../appmodule/userrights.js');
 var emp = require('../appmodule/employee.js');
 var company = require('../appmodule/company.js');
 var acgroup = require('../appmodule/acgroup.js');
@@ -21,8 +22,21 @@ var appRouter = function(app) {
 
     //#################### Login / ##########################
     app.post("/getLogin", user.getLogin);
+    //#############################################################################################
+
+    //#################### Menu / ##########################
+    app.post("/getMenuHead", menu.getMenuHead);
+    app.post("/getMenuDetails", menu.getMenuDetails);
+    //#############################################################################################
+
+    //#################### User / ##########################
     app.post("/getUsers", user.getUsers);
     app.post("/saveUsers", user.saveUsers);
+    //#############################################################################################
+
+    //#################### User Rights / ##########################
+    app.post("/getUserRights", ur.getUserRights);
+    app.post("/saveUserRights", ur.saveUserRights);
     //#############################################################################################
 
     //#################### Common / ##########################
@@ -48,14 +62,6 @@ var appRouter = function(app) {
 
     //#################### Ac Group / ##########################
     app.post("/getAcgroup", acgroup.getAcgroup);
-    //#############################################################################################
-
-    //#################### Head Menu / ##########################
-    app.post("/getMenuHead", headmenu.getMenuHead);
-    //#############################################################################################
-    
-    //#################### Head Menu / ##########################
-    app.post("/getMenu", headmenu.getMenu);
     //#############################################################################################
 
     //#################### API TEST / ##########################
