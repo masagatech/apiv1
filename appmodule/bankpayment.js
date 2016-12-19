@@ -13,7 +13,7 @@ bankPay.getBankMaster = function getBankMaster(req, res, done) {
 }
 
 bankPay.getBankPayview = function getBankPayview(req, res, done) {
-    db.callProcedure("select " + globals.schema("funget_auto") + "($1,$2::json);", ['auto', req.body], function(data) {
+    db.callProcedure("select " + globals.schema("funget_bankpayment") + "($1,$2::json);", ['auto', req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
