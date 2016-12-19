@@ -4,6 +4,9 @@ var common = require('../appmodule/common.js');
 var user = require('../appmodule/user.js');
 var emp = require('../appmodule/employee.js');
 var acgroup = require('../appmodule/acgroup.js');
+var bankrecipt = require('../appmodule/bankreciept.js');
+var bankPayment = require('../appmodule/bankpayment.js');
+var itemsmaster= require('../appmodule/itemsmaster.js');
 
 var appRouter = function(app) {
     //############# API Details 
@@ -34,6 +37,8 @@ var appRouter = function(app) {
 
     //#################### Ac Group / ##########################
     app.post("/getAcgroup", acgroup.getAcgroup);
+    app.post("/saveAcgroup",acgroup.saveAcgroup);
+    app.post("/getApplicableFrom",acgroup.getApplicableFrom);
     //#############################################################################################
 
     //#################### Head Menu / ##########################
@@ -42,6 +47,21 @@ var appRouter = function(app) {
     
     //#################### Head Menu / ##########################
     app.post("/getMenu", headmenu.getMenu);
+    //#############################################################################################
+
+     //#################### Bank Reciept / ##########################
+    app.post("/getBankMaster", bankrecipt.getBankMaster);
+    app.post("/savebankreciept", bankrecipt.savebankreciept);
+    //#############################################################################################
+
+     //#################### Bank Payment / ##########################
+    app.post("/getBankMaster", bankPayment.getBankMaster);
+    app.post("/savebankpayment", bankPayment.savebankpayment);
+    app.post("/getBankPayview", bankPayment.getBankPayview);
+    //#############################################################################################
+
+    //#################### items Master / ##########################
+    app.post("/saveItemsMaster", itemsmaster.saveItemsMaster);
     //#############################################################################################
 
     //#################### API TEST / ##########################
