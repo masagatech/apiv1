@@ -7,8 +7,6 @@
     var emp = require('../appmodule/employee.js');
     var company = require('../appmodule/company.js');
     var jv = require('../appmodule/jv.js');
-
-    var headmenu = require('../appmodule/menu.js');
     var debitnote = require('../appmodule/debitnote.js');
     var acgroup = require('../appmodule/acgroup.js');
 
@@ -34,7 +32,7 @@
 
         //#################### Menu / ##########################
         app.post("/getMenuHead", menu.getMenuHead);
-        app.post("/getMenuDetails", menu.getMenuDetails);
+        app.post("/getMenu", menu.getMenu);
         //#############################################################################################
 
         //#################### User / ##########################
@@ -81,17 +79,9 @@
         //#################### Ac Group / ##########################
         app.post("/getAcgroup", acgroup.getAcgroup);
         //#############################################################################################
-    //#################### Bank Reciept / ##########################
+        //#################### Bank Reciept / ##########################
         app.post("/getBankMaster", bankrecipt.getBankMaster);
         app.post("/savebankreciept", bankrecipt.savebankreciept);
-        //#############################################################################################
-
-        //#################### Head Menu / ##########################
-        app.post("/getMenuHead", headmenu.getMenuHead);
-        //#############################################################################################
-        
-        //#################### Head Menu / ##########################
-        app.post("/getMenu", headmenu.getMenu);
         //#############################################################################################
         //#################### Bank Payment / ##########################
         app.post("/getBankMaster", bankPayment.getBankMaster);
@@ -105,14 +95,6 @@
         //#################### API TEST / ##########################
     }
 
-    module.exports = appRouter;
 
-
-
-
-        
-
-        //#################### API TEST / ##########################
-    }
 
     module.exports = appRouter;
