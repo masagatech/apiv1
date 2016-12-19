@@ -21,3 +21,11 @@ bankrecipt.savebankreciept=function savebankreciept(req, res, done)
         rs.resp(res, 401, "error : " + err);
     })
 }
+
+bankrecipt.getbankreciptview = function getbankreciptview(req, res, done) {
+    db.callProcedure("select " + globals.schema("funget_bankreciept") + "($1,$2::json);", ['auto', req.body], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    }, 1)
+}
