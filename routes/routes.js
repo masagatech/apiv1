@@ -32,7 +32,7 @@
 
         //#################### Menu / ##########################
         app.post("/getMenuHead", menu.getMenuHead);
-        app.post("/getMenu", menu.getMenu);
+        app.post("/getMenuDetails", menu.getMenu);
         //#############################################################################################
 
         //#################### User / ##########################
@@ -79,7 +79,7 @@
         //#################### Ac Group / ##########################
         app.post("/getAcgroup", acgroup.getAcgroup);
         //#############################################################################################
-        
+
         //#################### Bank Reciept / ##########################
         app.post("/getBankMaster", bankrecipt.getBankMaster);
         app.post("/savebankreciept", bankrecipt.savebankreciept);
