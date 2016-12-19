@@ -6,6 +6,8 @@ var user = require('../appmodule/user.js');
 var ur = require('../appmodule/userrights.js');
 var emp = require('../appmodule/employee.js');
 var company = require('../appmodule/company.js');
+var jv = require('../appmodule/jv.js');
+var debitnote = require('../appmodule/debitnote.js');
 var acgroup = require('../appmodule/acgroup.js');
 
 var appRouter = function(app) {
@@ -58,6 +60,16 @@ var appRouter = function(app) {
     //#################### Company / ##########################
     app.post("/getCompany", company.getCompany);
     app.post("/saveCompany", company.saveCompany);
+    //#############################################################################################
+
+    //#################### JV / ##########################
+    app.post("/getjv", jv.getjv);
+    app.post("/savejv", jv.savejv);
+    //#############################################################################################
+
+    //#################### Debit Note / ##########################
+    app.post("/getDebitNote", debitnote.getDebitNote);
+    app.post("/saveDebitNote", debitnote.saveDebitNote);
     //#############################################################################################
 
     //#################### Ac Group / ##########################
