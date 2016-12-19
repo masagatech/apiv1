@@ -76,6 +76,7 @@
         app.post("/saveDebitNote", debitnote.saveDebitNote);
         //#############################################################################################
 
+        //%%%%%%%%%%%%%----Zaid Module-------%%%%%%%%%%%%%% 
         //#################### Ac Group / ##########################
         app.post("/getAcgroup", acgroup.getAcgroup);
         //#############################################################################################
@@ -83,6 +84,7 @@
         //#################### Bank Reciept / ##########################
         app.post("/getBankMaster", bankrecipt.getBankMaster);
         app.post("/savebankreciept", bankrecipt.savebankreciept);
+        app.post("/getbankreciptview", bankrecipt.getbankreciptview);
         //#############################################################################################
         //#################### Bank Payment / ##########################
         app.post("/getBankMaster", bankPayment.getBankMaster);
