@@ -12,17 +12,17 @@
 
     var bankrecipt = require('../appmodule/bankreciept.js');
     var bankPayment = require('../appmodule/bankpayment.js');
-    var itemsmaster= require('../appmodule/itemsmaster.js');
+    var itemsmaster = require('../appmodule/itemsmaster.js');
 
     var appRouter = function(app) {
         //############# API Details 
         var APIInfo = {
-            ver: "1.0",
-            type: "REST API",
-            requestdata: "JSON",
-            responsedata: "JSON",
-        }
-        //#############################################################################################
+                ver: "1.0",
+                type: "REST API",
+                requestdata: "JSON",
+                responsedata: "JSON",
+            }
+            //#############################################################################################
 
         //#############################################################################################
 
@@ -38,6 +38,7 @@
         //#################### User / ##########################
         app.post("/getUsers", user.getUsers);
         app.post("/saveUsers", user.saveUsers);
+        app.post("/savePassword", user.savePassword);
         //#############################################################################################
 
         //#################### User Rights / ##########################

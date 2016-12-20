@@ -44,3 +44,12 @@ user.saveUsers = function saveUsers(req, res, done) {
         rs.resp(res, 401, "error : " + err);
     })
 }
+
+
+user.savePassword = function savePassword(req, res, done) {
+    db.callProcedure("select " + globals.schema("funsave_changepwd") + "($1,$2::json);", ['login', req.body], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    }, 1)
+}
