@@ -84,6 +84,8 @@
         //#############################################################################################
         //#################### Ac Group / ##########################
         app.post("/getAcgroup", acgroup.getAcgroup);
+        app.post("/getApplicableFrom", acgroup.getApplicableFrom);
+        app.post("/saveAcgroup", acgroup.saveAcgroup);
         //#############################################################################################
 
         //#################### Bank Reciept / ##########################
@@ -100,6 +102,7 @@
 
         //#################### items Master / ##########################
         app.post("/saveItemsMaster", itemsmaster.saveItemsMaster);
+        app.post("/getItemsMaster", itemsmaster.getItemsMaster);
         //#############################################################################################
 
         //#################### API TEST / ##########################
