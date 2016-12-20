@@ -55,7 +55,7 @@ user.savePassword = function savePassword(req, res, done) {
 }
 
 user.getLogout = function getLogout(req, res, done) {
-    db.callProcedure("select " + globals.schema("funsave_logout") + "($1,$2::json);", ['logout', req.body], function(data) {
+    db.callProcedure("select " + globals.schema("funget_logout") + "($1,$2::json);", ['logout', req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
