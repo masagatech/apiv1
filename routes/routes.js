@@ -8,6 +8,7 @@
     var company = require('../appmodule/company.js');
     var jv = require('../appmodule/jv.js');
     var debitnote = require('../appmodule/debitnote.js');
+    var pdc = require('../appmodule/pdc.js');
     var acgroup = require('../appmodule/acgroup.js');
 
     var bankrecipt = require('../appmodule/bankreciept.js');
@@ -15,7 +16,7 @@
     var itemsmaster= require('../appmodule/itemsmaster.js');
 
     var appRouter = function(app) {
-        //############# API Details 
+        //#################### API Details / ##########################
         var APIInfo = {
             ver: "1.0",
             type: "REST API",
@@ -76,6 +77,11 @@
         app.post("/saveDebitNote", debitnote.saveDebitNote);
         //#############################################################################################
 
+        //#################### PDC / ##########################
+        app.post("/getpdc", pdc.getpdc);
+        app.post("/savepdc", pdc.savepdc);
+        //#############################################################################################
+
         //#################### Ac Group / ##########################
         app.post("/getAcgroup", acgroup.getAcgroup);
         //#############################################################################################
@@ -84,6 +90,7 @@
         app.post("/getBankMaster", bankrecipt.getBankMaster);
         app.post("/savebankreciept", bankrecipt.savebankreciept);
         //#############################################################################################
+
         //#################### Bank Payment / ##########################
         app.post("/getBankMaster", bankPayment.getBankMaster);
         app.post("/savebankpayment", bankPayment.savebankpayment);
@@ -93,6 +100,7 @@
         //#################### items Master / ##########################
         app.post("/saveItemsMaster", itemsmaster.saveItemsMaster);
         //#############################################################################################
+
         //#################### API TEST / ##########################
     }
 
