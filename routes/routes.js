@@ -13,17 +13,17 @@
 
     var bankrecipt = require('../appmodule/bankreciept.js');
     var bankPayment = require('../appmodule/bankpayment.js');
-    var itemsmaster= require('../appmodule/itemsmaster.js');
+    var itemsmaster = require('../appmodule/itemsmaster.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
         var APIInfo = {
-            ver: "1.0",
-            type: "REST API",
-            requestdata: "JSON",
-            responsedata: "JSON",
-        }
-        //#############################################################################################
+                ver: "1.0",
+                type: "REST API",
+                requestdata: "JSON",
+                responsedata: "JSON",
+            }
+            //#############################################################################################
 
         //#############################################################################################
 
@@ -39,6 +39,7 @@
         //#################### User / ##########################
         app.post("/getUsers", user.getUsers);
         app.post("/saveUsers", user.saveUsers);
+        app.post("/savePassword", user.savePassword);
         //#############################################################################################
 
         //#################### User Rights / ##########################
@@ -77,11 +78,15 @@
         app.post("/saveDebitNote", debitnote.saveDebitNote);
         //#############################################################################################
 
+<<<<<<< HEAD
         //#################### PDC / ##########################
         app.post("/getpdc", pdc.getpdc);
         app.post("/savepdc", pdc.savepdc);
         //#############################################################################################
 
+=======
+        //%%%%%%%%%%%%%----Zaid Module-------%%%%%%%%%%%%%% 
+>>>>>>> 50ceacbef754336174905157c6a59b1cb93039f5
         //#################### Ac Group / ##########################
         app.post("/getAcgroup", acgroup.getAcgroup);
         //#############################################################################################
@@ -89,6 +94,7 @@
         //#################### Bank Reciept / ##########################
         app.post("/getBankMaster", bankrecipt.getBankMaster);
         app.post("/savebankreciept", bankrecipt.savebankreciept);
+        app.post("/getbankreciptview", bankrecipt.getbankreciptview);
         //#############################################################################################
 
         //#################### Bank Payment / ##########################
