@@ -5,6 +5,7 @@
     var user = require('../appmodule/user.js');
     var ur = require('../appmodule/userrights.js');
     var emp = require('../appmodule/employee.js');
+    var dr = require('../appmodule/docrepo.js');
     var company = require('../appmodule/company.js');
     var jv = require('../appmodule/jv.js');
     var debitnote = require('../appmodule/debitnote.js');
@@ -23,7 +24,7 @@
                 requestdata: "JSON",
                 responsedata: "JSON",
             }
-            //#############################################################################################
+        //#############################################################################################
 
         //#############################################################################################
 
@@ -64,6 +65,11 @@
         app.post("/saveEmployee", emp.saveEmployee);
         //#############################################################################################
 
+        //#################### Document Repository / ##########################
+        app.post("/getDocRepo", dr.getDocRepo);
+        app.post("/saveDocRepo", dr.saveDocRepo);
+        //#############################################################################################
+        
         //#################### Company / ##########################
         app.post("/getCompany", company.getCompany);
         app.post("/saveCompany", company.saveCompany);
@@ -78,10 +84,12 @@
         app.post("/getDebitNote", debitnote.getDebitNote);
         app.post("/saveDebitNote", debitnote.saveDebitNote);
         //#############################################################################################
+
         //#################### PDC / ##########################
         app.post("/getpdc", pdc.getpdc);
         app.post("/savepdc", pdc.savepdc);
         //#############################################################################################
+
         //#################### Ac Group / ##########################
         app.post("/getAcgroup", acgroup.getAcgroup);
         app.post("/getApplicableFrom", acgroup.getApplicableFrom);
