@@ -13,6 +13,7 @@ purchaseord.savePurchaseOrder = function savePurchaseOrder(req, res, done)
 }
 
 purchaseord.getitemsDetails = function getitemsDetails(req, res, done) {
+    db.callProcedure("select " + globals.schema("funget_itemsdetails") + "($1,$2::json);", ['acg', req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
