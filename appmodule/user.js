@@ -61,3 +61,12 @@ user.getLogout = function getLogout(req, res, done) {
         rs.resp(res, 401, "error : " + err);
     }, 1)
 }
+
+
+user.saveSettings = function saveSettings(req, res, done) {
+    db.callFunction("select " + globals.schema("funsave_usersettings") + "($2::json);", [req.body], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    })
+}

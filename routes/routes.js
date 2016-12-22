@@ -25,7 +25,7 @@
                 requestdata: "JSON",
                 responsedata: "JSON",
             }
-        //#############################################################################################
+            //#############################################################################################
 
         //#############################################################################################
 
@@ -43,6 +43,7 @@
         app.post("/getUsers", user.getUsers);
         app.post("/saveUsers", user.saveUsers);
         app.post("/savePassword", user.savePassword);
+        app.post("/saveSettings", user.saveSettings);
         //#############################################################################################
 
         //#################### User Rights / ##########################
@@ -70,7 +71,7 @@
         app.post("/getDocRepo", dr.getDocRepo);
         app.post("/saveDocRepo", dr.saveDocRepo);
         //#############################################################################################
-        
+
         //#################### Company / ##########################
         app.post("/getCompany", company.getCompany);
         app.post("/saveCompany", company.saveCompany);
@@ -114,9 +115,9 @@
         app.post("/getItemsMaster", itemsmaster.getItemsMaster);
         //#############################################################################################
 
-         //#################### Purchase Order / ##########################
+        //#################### Purchase Order / ##########################
         app.post("/savePurchaseOrder", purchaseord.savePurchaseOrder);
-        app.post("/getitemsDetails",purchaseord.getitemsDetails);
+        app.post("/getitemsDetails", purchaseord.getitemsDetails);
         //#############################################################################################
 
         //#################### API TEST / ##########################
