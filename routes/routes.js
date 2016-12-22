@@ -10,8 +10,9 @@
     var jv = require('../appmodule/jv.js');
     var debitnote = require('../appmodule/debitnote.js');
     var pdc = require('../appmodule/pdc.js');
-    var acgroup = require('../appmodule/acgroup.js');
+    var rb = require('../appmodule/receiptbook.js');
 
+    var acgroup = require('../appmodule/acgroup.js');
     var bankrecipt = require('../appmodule/bankreciept.js');
     var bankPayment = require('../appmodule/bankpayment.js');
     var itemsmaster = require('../appmodule/itemsmaster.js');
@@ -31,7 +32,7 @@
         //#################### Login / ##########################
         app.post("/getLogin", user.getLogin);
         app.post("/getLogout", user.getLogout)
-            //#############################################################################################
+        //#############################################################################################
 
         //#################### Menu / ##########################
         app.post("/getMenuHead", menu.getMenuHead);
@@ -51,6 +52,8 @@
 
         //#################### Common / ##########################
         app.post("/getAutoData", common.getAutoData);
+        app.post("/checkValidate", common.checkValidate);
+
         app.post("/getMOM", common.getMOM);
         app.post("/saveMOM", common.saveMOM);
         //#############################################################################################
@@ -88,6 +91,12 @@
         //#################### PDC / ##########################
         app.post("/getpdc", pdc.getpdc);
         app.post("/savepdc", pdc.savepdc);
+        //#############################################################################################
+
+        //#################### Receipt Book / ##########################
+        app.post("/getAllRB", rb.getAllRB);
+        app.post("/getRBDetails", rb.getRBDetails);
+        app.post("/saveReceiptBook", rb.saveReceiptBook);
         //#############################################################################################
 
         //#################### Ac Group / ##########################
