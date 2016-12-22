@@ -16,6 +16,7 @@
     var bankrecipt = require('../appmodule/bankreciept.js');
     var bankPayment = require('../appmodule/bankpayment.js');
     var itemsmaster = require('../appmodule/itemsmaster.js');
+    var purchaseord = require('../appmodule/purchaseorder.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -25,7 +26,7 @@
                 requestdata: "JSON",
                 responsedata: "JSON",
             }
-        //#############################################################################################
+            //#############################################################################################
 
         //#############################################################################################
 
@@ -43,6 +44,7 @@
         app.post("/getUsers", user.getUsers);
         app.post("/saveUsers", user.saveUsers);
         app.post("/savePassword", user.savePassword);
+        app.post("/saveSettings", user.saveSettings);
         //#############################################################################################
 
         //#################### User Rights / ##########################
@@ -72,7 +74,7 @@
         app.post("/getDocRepo", dr.getDocRepo);
         app.post("/saveDocRepo", dr.saveDocRepo);
         //#############################################################################################
-        
+
         //#################### Company / ##########################
         app.post("/getCompany", company.getCompany);
         app.post("/saveCompany", company.saveCompany);
@@ -120,6 +122,11 @@
         //#################### items Master / ##########################
         app.post("/saveItemsMaster", itemsmaster.saveItemsMaster);
         app.post("/getItemsMaster", itemsmaster.getItemsMaster);
+        //#############################################################################################
+
+        //#################### Purchase Order / ##########################
+        app.post("/savePurchaseOrder", purchaseord.savePurchaseOrder);
+        app.post("/getitemsDetails", purchaseord.getitemsDetails);
         //#############################################################################################
 
         //#################### API TEST / ##########################
