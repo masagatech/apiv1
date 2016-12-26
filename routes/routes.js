@@ -57,7 +57,7 @@
         app.post("/checkValidate", common.checkValidate);
 
         app.post("/getMOM", common.getMOM);
-        app.post("/saveMOM", common.saveMOM);
+        app.post("/getOtherDetails", common.getOtherDetails);
         //#############################################################################################
 
         //#################### FY / ##########################
@@ -99,6 +99,12 @@
         app.post("/getAllRB", rb.getAllRB);
         app.post("/getRBDetails", rb.getRBDetails);
         app.post("/saveReceiptBook", rb.saveReceiptBook);
+        //#############################################################################################
+
+        //#################### Receipt Book Issued / ##########################
+        app.post("/getAllRBI", rb.getAllRBI);
+        app.post("/getRBIDetails", rb.getRBIDetails);
+        app.post("/saveRBIDetails", rb.saveRBIDetails);
         //#############################################################################################
 
         //#################### Ac Group / ##########################
