@@ -5,10 +5,10 @@ var globals = require("../globals.js");
 var company = module.exports = {};
 
 company.getCompany = function getCompany(req, res, done) {
-    
     var params = [];
     var paramstr = "";
     var countr  = 1;
+    
     switch (req.body.flag) {
         case "actwithfy":
             params = ['company','company1', req.body];
