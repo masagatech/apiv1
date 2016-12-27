@@ -17,6 +17,8 @@
     var bankPayment = require('../appmodule/bankpayment.js');
     var itemsmaster = require('../appmodule/itemsmaster.js');
     var purchaseord = require('../appmodule/purchaseorder.js');
+    var attribute = require('../appmodule/attribute.js');
+    var ctrlcenter = require('../appmodule/ctrlcenter.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -57,6 +59,8 @@
         app.post("/checkValidate", common.checkValidate);
 
         app.post("/getMOM", common.getMOM);
+        app.post("/getMOMGrid", common.getMOMGrid);
+        app.post("/saveMOM", common.saveMOM);
         app.post("/getOtherDetails", common.getOtherDetails);
         //#############################################################################################
 
@@ -138,6 +142,16 @@
 
         app.post("/upload", fileupload.uploadFile);
 
+        //#############################################################################################
+
+          //#################### Attribute / ##########################
+        app.post("/saveAttribute", attribute.saveAttribute);
+        app.post("/getAttribute",attribute.getAttribute);
+        //#############################################################################################
+
+        //#################### Controlling Center / ##########################
+        app.post("/saveCtrlcenter", ctrlcenter.saveCtrlcenter);
+        app.post("/getCtrlcenter",ctrlcenter.getCtrlcenter);
         //#############################################################################################
 
         //#################### API TEST / ##########################
