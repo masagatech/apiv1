@@ -10,8 +10,9 @@
     var jv = require('../appmodule/jv.js');
     var debitnote = require('../appmodule/debitnote.js');
     var pdc = require('../appmodule/pdc.js');
-    var acgroup = require('../appmodule/acgroup.js');
+    var rb = require('../appmodule/receiptbook.js');
 
+    var acgroup = require('../appmodule/acgroup.js');
     var bankrecipt = require('../appmodule/bankreciept.js');
     var bankPayment = require('../appmodule/bankpayment.js');
     var itemsmaster = require('../appmodule/itemsmaster.js');
@@ -26,14 +27,14 @@
                 requestdata: "JSON",
                 responsedata: "JSON",
             }
-        //#############################################################################################
+            //#############################################################################################
 
         //#############################################################################################
 
         //#################### Login / ##########################
         app.post("/getLogin", user.getLogin);
         app.post("/getLogout", user.getLogout)
-            //#############################################################################################
+        //#############################################################################################
 
         //#################### Menu / ##########################
         app.post("/getMenuHead", menu.getMenuHead);
@@ -44,6 +45,7 @@
         app.post("/getUsers", user.getUsers);
         app.post("/saveUsers", user.saveUsers);
         app.post("/savePassword", user.savePassword);
+        app.post("/saveSettings", user.saveSettings);
         //#############################################################################################
 
         //#################### User Rights / ##########################
@@ -53,8 +55,10 @@
 
         //#################### Common / ##########################
         app.post("/getAutoData", common.getAutoData);
+        app.post("/checkValidate", common.checkValidate);
+
         app.post("/getMOM", common.getMOM);
-        app.post("/saveMOM", common.saveMOM);
+        app.post("/getOtherDetails", common.getOtherDetails);
         //#############################################################################################
 
         //#################### FY / ##########################
@@ -71,7 +75,7 @@
         app.post("/getDocRepo", dr.getDocRepo);
         app.post("/saveDocRepo", dr.saveDocRepo);
         //#############################################################################################
-        
+
         //#################### Company / ##########################
         app.post("/getCompany", company.getCompany);
         app.post("/saveCompany", company.saveCompany);
@@ -90,6 +94,18 @@
         //#################### PDC / ##########################
         app.post("/getpdc", pdc.getpdc);
         app.post("/savepdc", pdc.savepdc);
+        //#############################################################################################
+
+        //#################### Receipt Book / ##########################
+        app.post("/getAllRB", rb.getAllRB);
+        app.post("/getRBDetails", rb.getRBDetails);
+        app.post("/saveReceiptBook", rb.saveReceiptBook);
+        //#############################################################################################
+
+        //#################### Receipt Book Issued / ##########################
+        app.post("/getAllRBI", rb.getAllRBI);
+        app.post("/getRBIDetails", rb.getRBIDetails);
+        app.post("/saveRBIDetails", rb.saveRBIDetails);
         //#############################################################################################
 
         //#################### Ac Group / ##########################
@@ -115,9 +131,9 @@
         app.post("/getItemsMaster", itemsmaster.getItemsMaster);
         //#############################################################################################
 
-         //#################### Purchase Order / ##########################
+        //#################### Purchase Order / ##########################
         app.post("/savePurchaseOrder", purchaseord.savePurchaseOrder);
-        app.post("/getitemsDetails",purchaseord.getitemsDetails);
+        app.post("/getitemsDetails", purchaseord.getitemsDetails);
         //#############################################################################################
 
           //#################### Attribute / ##########################
