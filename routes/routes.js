@@ -19,6 +19,7 @@
     var purchaseord = require('../appmodule/purchaseorder.js');
     var attribute = require('../appmodule/attribute.js');
     var ctrlcenter = require('../appmodule/ctrlcenter.js');
+    var fileupload = require('../appmodule/fileupload.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -144,14 +145,14 @@
 
         //#############################################################################################
 
-          //#################### Attribute / ##########################
+        //#################### Attribute / ##########################
         app.post("/saveAttribute", attribute.saveAttribute);
-        app.post("/getAttribute",attribute.getAttribute);
+        app.post("/getAttribute", attribute.getAttribute);
         //#############################################################################################
 
         //#################### Controlling Center / ##########################
         app.post("/saveCtrlcenter", ctrlcenter.saveCtrlcenter);
-        app.post("/getCtrlcenter",ctrlcenter.getCtrlcenter);
+        app.post("/getCtrlcenter", ctrlcenter.getCtrlcenter);
         //#############################################################################################
 
         //#################### API TEST / ##########################
