@@ -57,6 +57,8 @@
         app.post("/checkValidate", common.checkValidate);
 
         app.post("/getMOM", common.getMOM);
+        app.post("/getMOMGrid", common.getMOMGrid);
+        app.post("/saveMOM", common.saveMOM);
         app.post("/getOtherDetails", common.getOtherDetails);
         //#############################################################################################
 
