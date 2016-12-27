@@ -48,6 +48,8 @@
         app.post("/saveUsers", user.saveUsers);
         app.post("/savePassword", user.savePassword);
         app.post("/saveSettings", user.saveSettings);
+        app.post("/getSettings", user.getSettings);
+
         //#############################################################################################
 
         //#################### User Rights / ##########################
