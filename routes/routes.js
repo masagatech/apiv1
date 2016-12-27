@@ -16,6 +16,7 @@
     var bankPayment = require('../appmodule/bankpayment.js');
     var itemsmaster = require('../appmodule/itemsmaster.js');
     var purchaseord = require('../appmodule/purchaseorder.js');
+    var attribute = require('../appmodule/attribute.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -117,6 +118,11 @@
          //#################### Purchase Order / ##########################
         app.post("/savePurchaseOrder", purchaseord.savePurchaseOrder);
         app.post("/getitemsDetails",purchaseord.getitemsDetails);
+        //#############################################################################################
+
+          //#################### Attribute / ##########################
+        app.post("/saveAttribute", attribute.saveAttribute);
+        app.post("/getAttribute",attribute.getAttribute);
         //#############################################################################################
 
         //#################### API TEST / ##########################
