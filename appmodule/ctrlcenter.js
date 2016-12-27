@@ -14,9 +14,9 @@ ctrlcenter.saveCtrlcenter=function saveCtrlcenter(req, res, done)
 }
 
 ctrlcenter.getCtrlcenter = function getCtrlcenter(req, res, done) {
-    db.callProcedure("select " + globals.schema("funget_ctrlcenter") + "($1,$2::json);", ['acg', req.body], function(data) {
+    db.callProcedure("select " + globals.schema("funget_ctrlcenter") + "($1,$2,$3::json);", ['ctr1','ctr2', req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
-    }, 1)
+    }, 2)
 }
