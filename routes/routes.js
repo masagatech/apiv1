@@ -20,6 +20,7 @@
     var attribute = require('../appmodule/attribute.js');
     var ctrlcenter = require('../appmodule/ctrlcenter.js');
     var fileupload = require('../appmodule/fileupload.js');
+    var adrbok = require('../appmodule/addressbook.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -151,6 +152,11 @@
         //#############################################################################################
 
         //#################### Controlling Center / ##########################
+        app.post("/saveCtrlcenter", ctrlcenter.saveCtrlcenter);
+        app.post("/getCtrlcenter", ctrlcenter.getCtrlcenter);
+        //#############################################################################################
+
+        //#################### Address Book / ##########################
         app.post("/saveCtrlcenter", ctrlcenter.saveCtrlcenter);
         app.post("/getCtrlcenter", ctrlcenter.getCtrlcenter);
         //#############################################################################################
