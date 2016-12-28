@@ -159,8 +159,8 @@
         //#############################################################################################
 
         //#################### Address Book / ##########################
-        app.post("/saveCtrlcenter", ctrlcenter.saveCtrlcenter);
-        app.post("/getCtrlcenter", ctrlcenter.getCtrlcenter);
+        app.post("/saveAddress", adrbok.saveAddress);
+        app.post("/getAddress", adrbok.getAddress);
         //#############################################################################################
 
         //#################### API TEST / ##########################

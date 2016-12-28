@@ -14,7 +14,7 @@ address.saveAddress=function saveAddress(req, res, done)
 }
 
 address.getAddress = function getAddress(req, res, done) {
-    db.callProcedure("select " + globals.schema("funget_address") + "($1,$2::json);", ['acg', req.body], function(data) {
+    db.callProcedure("select " + globals.schema("funget_address") + "($1,$2::json);", ['adr', req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
