@@ -4,7 +4,9 @@ var path = require('path'),
     fs = require('fs');
 var formidable = require('formidable');
 var fileupload = module.exports = {};
+
 //file upload example
+
 fileupload.uploadFile = function uploadFile(req, res, done) {
 
     var form = new formidable.IncomingForm();

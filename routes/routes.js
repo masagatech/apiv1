@@ -19,6 +19,7 @@
     var purchaseord = require('../appmodule/purchaseorder.js');
     var attribute = require('../appmodule/attribute.js');
     var ctrlcenter = require('../appmodule/ctrlcenter.js');
+    var attach = require('../appmodule/attach.js');
     var fileupload = require('../appmodule/fileupload.js');
 
     var appRouter = function(app) {
@@ -141,6 +142,8 @@
         //#############################################################################################
         //#################### File Uploads /  ##########################	
 
+        app.post("/getAttach", attach.getAttach);
+        app.post("/saveAttach", attach.saveAttach);
         app.post("/upload", fileupload.uploadFile);
 
         //#############################################################################################
