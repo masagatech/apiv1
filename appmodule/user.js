@@ -64,9 +64,18 @@ user.getLogout = function getLogout(req, res, done) {
 
 
 user.saveSettings = function saveSettings(req, res, done) {
-    db.callFunction("select " + globals.schema("funsave_usersettings") + "($2::json);", [req.body], function(data) {
+    db.callFunction("select " + globals.schema("funsave_usersettings") + "($1::json);", [req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
     })
+}
+
+
+user.getSettings = function getSettings(req, res, done) {
+    db.callProcedure("select " + globals.schema("funget_usersettings") + "($1,$2::json);", ['usrsettings', req.body], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    }, 1)
 }
