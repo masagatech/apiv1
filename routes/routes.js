@@ -22,6 +22,8 @@
     var attach = require('../appmodule/attach.js');
     var fileupload = require('../appmodule/fileupload.js');
     var adrbok = require('../appmodule/addressbook.js');
+    var dcmaster = require('../appmodule/dcmaster.js');
+    var warehouse = require('../appmodule/warehouse.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -164,6 +166,19 @@
         //#################### Address Book / ##########################
         app.post("/saveAddress", adrbok.saveAddress);
         app.post("/getAddress", adrbok.getAddress);
+        //#############################################################################################
+
+        //#################### DC Master / ##########################
+        app.post("/getdcdropdetails", dcmaster.getdcdropdetails);
+        app.post("/getdcitemsdetails", dcmaster.getdcitemsdetails);
+        app.post("/saveDcMaster", dcmaster.saveDcMaster);
+        app.post("/getdcdetails", dcmaster.getdcdetails);
+        //#############################################################################################
+
+        //#################### Warehouse Master / ##########################
+        app.post("/saveWarehouse",warehouse.saveWarehouse);
+        app.post("/getwarehouse",warehouse.getwarehouse);
+       
         //#############################################################################################
 
         //#################### API TEST / ##########################
