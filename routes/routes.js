@@ -24,6 +24,7 @@
     var adrbok = require('../appmodule/addressbook.js');
     var dcmaster = require('../appmodule/dcmaster.js');
     var warehouse = require('../appmodule/warehouse.js');
+    var Customer = require('../appmodule/customer.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -178,7 +179,12 @@
         //#################### Warehouse Master / ##########################
         app.post("/saveWarehouse",warehouse.saveWarehouse);
         app.post("/getwarehouse",warehouse.getwarehouse);
-       
+        //#############################################################################################
+
+         //#################### Customer Master / ##########################
+        app.post("/saveCustomer",Customer.saveCustomer);
+        app.post("/getcustomerdrop",Customer.getcustomerdrop);
+        app.post("/getcustomer",Customer.getcustomer);
         //#############################################################################################
 
         //#################### API TEST / ##########################
