@@ -20,6 +20,14 @@ Customermaster.getcustomer = function getcustomer(req, res, done) {
     }, 2)
 }
 
+Customermaster.getctrldetails = function getctrldetails(req, res, done) {
+    db.callProcedure("select " + globals.schema("funget_customerctrl") + "($1,$2::json);", ['c1', req.body], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    }, 1)
+}
+
 Customermaster.saveCustomer=function saveCustomer(req, res, done)
 {
     db.callFunction("select " + globals.schema("funsave_customer") + "($1::json);", [req.body], function(data) {
