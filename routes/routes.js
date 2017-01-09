@@ -5,7 +5,7 @@
     var user = require('../appmodule/user.js');
     var ur = require('../appmodule/userrights.js');
     var emp = require('../appmodule/employee.js');
-    var dr = require('../appmodule/docrepo.js');
+    var dr = require('../appmodule/empdocrepo.js');
     var company = require('../appmodule/company.js');
     var jv = require('../appmodule/jv.js');
     var debitnote = require('../appmodule/debitnote.js');
@@ -84,8 +84,8 @@
         //#############################################################################################
 
         //#################### Document Repository / ##########################
-        app.post("/getDocRepo", dr.getDocRepo);
-        app.post("/saveDocRepo", dr.saveDocRepo);
+        app.post("/getEmpDocRepo", dr.getEmpDocRepo);
+        app.post("/saveEmpDocRepo", dr.saveEmpDocRepo);
         //#############################################################################################
 
         //#################### Company / ##########################
