@@ -26,6 +26,7 @@
     var warehouse = require('../appmodule/warehouse.js');
     var customer = require('../appmodule/customer.js');
     var vendor = require('../appmodule/vendor.js');
+    var warehousetranf = require('../appmodule/warehousetransfer.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -193,6 +194,10 @@
         app.post("/saveVendor",vendor.saveVendor);
         app.post("/getvendordrop",vendor.getvendordrop);
         app.post("/getvendor",vendor.getvendor);
+        //#############################################################################################
+
+         //#################### Warehouse Transfer / ##########################
+        app.post("/saveWarehouseTranf",warehousetranf.saveWarehouseTranf);
         //#############################################################################################
 
         //#################### API TEST / ##########################
