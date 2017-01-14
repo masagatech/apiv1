@@ -142,6 +142,7 @@
         //#################### items Master / ##########################
         app.post("/saveItemsMaster", itemsmaster.saveItemsMaster);
         app.post("/getItemsMaster", itemsmaster.getItemsMaster);
+        app.post("/getdoprodwn", itemsmaster.getdoprodwn);
         //#############################################################################################
 
         //#################### Purchase Order / ##########################
