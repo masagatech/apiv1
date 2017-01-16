@@ -21,9 +21,9 @@ itemsmaster.getItemsMaster = function getItemsMaster(req, res, done) {
 }
 
 itemsmaster.getdoprodwn = function getdoprodwn(req, res, done) {
-    db.callProcedure("select " + globals.schema("funget_itemsmasterdrop") + "($1,$2::json);", ['acg', req.body], function(data) {
+    db.callProcedure("select " + globals.schema("funget_itemsmasterdrop") + "($1,$2,$3::json);", ['acg','acg1' ,req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
-    }, 1)
+    }, 2)
 }
