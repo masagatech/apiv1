@@ -199,6 +199,7 @@
 
          //#################### Warehouse Transfer / ##########################
         app.post("/saveWarehouseTranf",warehousetranf.saveWarehouseTranf);
+        app.post("/getwarehouseTransfer",warehousetranf.getwarehouseTransfer);
         //#############################################################################################
 
         //#################### API TEST / ##########################
