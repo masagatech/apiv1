@@ -27,6 +27,7 @@
     var customer = require('../appmodule/customer.js');
     var vendor = require('../appmodule/vendor.js');
     var warehousetranf = require('../appmodule/warehousetransfer.js');
+    var wareopenibgstok = require('../appmodule/wareopeningstock.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -200,6 +201,11 @@
          //#################### Warehouse Transfer / ##########################
         app.post("/saveWarehouseTranf",warehousetranf.saveWarehouseTranf);
         app.post("/getwarehouseTransfer",warehousetranf.getwarehouseTransfer);
+        //#############################################################################################
+
+         //#################### Warehouse opening stock / ##########################
+        app.post("/getopeningstock",wareopenibgstok.getopeningstock);
+        app.post("/saveWareOpeningStock",wareopenibgstok.saveWareOpeningStock);
         //#############################################################################################
 
         //#################### API TEST / ##########################
