@@ -2,6 +2,7 @@
     var menu = require('../appmodule/menu.js');
     var common = require('../appmodule/common.js');
     var fy = require('../appmodule/fy.js');
+    var dynflds = require('../appmodule/dynamicfields.js');
     var user = require('../appmodule/user.js');
     var ur = require('../appmodule/userrights.js');
     var emp = require('../appmodule/employee.js');
@@ -11,6 +12,9 @@
     var debitnote = require('../appmodule/debitnote.js');
     var pdc = require('../appmodule/pdc.js');
     var rb = require('../appmodule/receiptbook.js');
+    var expensectrlcentermap = require('../appmodule/expensectrlcentermap.js');
+    var expensevoucher = require('../appmodule/expensevoucher.js');
+    var expensebudget = require('../appmodule/expensebudget.js');
 
     var acgroup = require('../appmodule/acgroup.js');
     var bankrecipt = require('../appmodule/bankreciept.js');
@@ -47,6 +51,11 @@
         //#################### Menu / ##########################
         app.post("/getMenuHead", menu.getMenuHead);
         app.post("/getMenuDetails", menu.getMenu);
+        //#############################################################################################
+
+        //#################### Expense Budget /  ##########################	
+        app.post("/getDynamicFields", dynflds.getDynamicFields);
+        app.post("/saveDynamicFields", dynflds.saveDynamicFields);
         //#############################################################################################
 
         //#################### User / ##########################
@@ -119,6 +128,32 @@
         app.post("/getRBIDetails", rb.getRBIDetails);
         app.post("/saveRBIDetails", rb.saveRBIDetails);
         //#############################################################################################
+        
+        //#################### Expense Control Center Mapping /  ##########################	
+        app.post("/getAllExpenseCtrlMap", expensectrlcentermap.getAllExpenseCtrlMap);
+        app.post("/getExpenseCtrlMap", expensectrlcentermap.getExpenseCtrlMap);
+        app.post("/saveExpenseCtrlMap", expensectrlcentermap.saveExpenseCtrlMap);
+        //#############################################################################################
+
+        //#################### Expense Voucher /  ##########################	
+        app.post("/getAllExpenseVoucher", expensevoucher.getAllExpenseVoucher);
+        app.post("/getExpenseVoucherDetails", expensevoucher.getExpenseVoucherDetails);
+        app.post("/saveExpenseVoucher", expensevoucher.saveExpenseVoucher);
+        //#############################################################################################
+
+        //#################### Expense Budget /  ##########################	
+        app.post("/getAllExpenseBudget", expensebudget.getAllExpenseBudget);
+        app.post("/getExpenseBudgetDetails", expensebudget.getExpenseBudgetDetails);
+        app.post("/saveExpenseBudget", expensebudget.saveExpenseBudget);
+        //#############################################################################################
+
+        //#################### File Uploads /  ##########################	
+
+        app.post("/getAttach", attach.getAttach);
+        app.post("/saveAttach", attach.saveAttach);
+        app.post("/upload", fileupload.uploadFile);
+
+        //#############################################################################################
 
         //#################### Ac Group / ##########################
         app.post("/getAcgroup", acgroup.getAcgroup);
@@ -146,13 +181,6 @@
         //#################### Purchase Order / ##########################
         app.post("/savePurchaseOrder", purchaseord.savePurchaseOrder);
         app.post("/getitemsDetails", purchaseord.getitemsDetails);
-        //#############################################################################################
-        //#################### File Uploads /  ##########################	
-
-        app.post("/getAttach", attach.getAttach);
-        app.post("/saveAttach", attach.saveAttach);
-        app.post("/upload", fileupload.uploadFile);
-
         //#############################################################################################
 
         //#################### Attribute / ##########################
@@ -189,7 +217,7 @@
         app.post("/getctrldetails",customer.getctrldetails);
         //#############################################################################################
 
-         //#################### Vendor Master / ##########################
+        //#################### Vendor Master / ##########################
         app.post("/saveVendor",vendor.saveVendor);
         app.post("/getvendordrop",vendor.getvendordrop);
         app.post("/getvendor",vendor.getvendor);
