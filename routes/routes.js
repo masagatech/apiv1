@@ -30,6 +30,7 @@
     var warehouse = require('../appmodule/warehouse.js');
     var customer = require('../appmodule/customer.js');
     var vendor = require('../appmodule/vendor.js');
+    var warehousetranf = require('../appmodule/warehousetransfer.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -176,6 +177,7 @@
         //#################### items Master / ##########################
         app.post("/saveItemsMaster", itemsmaster.saveItemsMaster);
         app.post("/getItemsMaster", itemsmaster.getItemsMaster);
+        app.post("/getdoprodwn", itemsmaster.getdoprodwn);
         //#############################################################################################
 
         //#################### Purchase Order / ##########################
@@ -221,6 +223,11 @@
         app.post("/saveVendor",vendor.saveVendor);
         app.post("/getvendordrop",vendor.getvendordrop);
         app.post("/getvendor",vendor.getvendor);
+        //#############################################################################################
+
+         //#################### Warehouse Transfer / ##########################
+        app.post("/saveWarehouseTranf",warehousetranf.saveWarehouseTranf);
+        app.post("/getwarehouseTransfer",warehousetranf.getwarehouseTransfer);
         //#############################################################################################
 
         //#################### API TEST / ##########################
