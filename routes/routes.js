@@ -32,6 +32,7 @@
     var vendor = require('../appmodule/vendor.js');
     var warehousetranf = require('../appmodule/warehousetransfer.js');
     var wareopenibgstok = require('../appmodule/wareopeningstock.js');
+    var transpoter = require('../appmodule/transpoter.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -234,6 +235,11 @@
          //#################### Warehouse opening stock / ##########################
         app.post("/getopeningstock",wareopenibgstok.getopeningstock);
         app.post("/saveWareOpeningStock",wareopenibgstok.saveWareOpeningStock);
+        //#############################################################################################
+
+         //#################### Transpoter Master / ##########################
+        app.post("/getTranspoter",transpoter.getTranspoter);
+        app.post("/saveTranspoter",transpoter.saveTranspoter);
         //#############################################################################################
 
         //#################### API TEST / ##########################
