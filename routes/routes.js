@@ -1,3 +1,4 @@
+    var valid = require('../appmodule/validation.js');
     var items = require('../appmodule/items.js');
     var menu = require('../appmodule/menu.js');
     var common = require('../appmodule/common.js');
@@ -33,23 +34,30 @@
     var warehousetranf = require('../appmodule/warehousetransfer.js');
     var wareopenibgstok = require('../appmodule/wareopeningstock.js');
     var transpoter = require('../appmodule/transpoter.js');
+    var auditlock = require('../appmodule/auditlock.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
         var APIInfo = {
-                ver: "1.0",
-                type: "REST API",
-                requestdata: "JSON",
-                responsedata: "JSON",
-            }
-            //#############################################################################################
+            ver: "1.0",
+            type: "REST API",
+            requestdata: "JSON",
+            responsedata: "JSON",
+        }
+        //#############################################################################################
 
+        //#############################################################################################
+
+        //#################### VIVEK / ##########################
+
+        //#################### Validation / ##########################
+        app.post("/checkDateValidate", valid.checkdatevalidate);
         //#############################################################################################
 
         //#################### Login / ##########################
         app.post("/getLogin", user.getLogin);
         app.post("/getLogout", user.getLogout)
-            //#############################################################################################
+        //#############################################################################################
 
         //#################### Menu / ##########################
         app.post("/getMenuHead", menu.getMenuHead);
@@ -158,6 +166,15 @@
 
         //#############################################################################################
 
+        //#################### Audit Lock / ##########################
+        app.post("/getAuditLockSetting",auditlock.getAuditLockSetting);
+        app.post("/saveAuditLockAction",auditlock.saveAuditLockAction);
+        //#############################################################################################
+
+        //#################### VIVEK / ##########################
+
+        //#################### ZAID / ###########################
+
         //#################### Ac Group / ##########################
         app.post("/getAcgroup", acgroup.getAcgroup);
         app.post("/getApplicableFrom", acgroup.getApplicableFrom);
@@ -227,24 +244,24 @@
         app.post("/getvendor",vendor.getvendor);
         //#############################################################################################
 
-         //#################### Warehouse Transfer / ##########################
+        //#################### Warehouse Transfer / ##########################
         app.post("/saveWarehouseTranf",warehousetranf.saveWarehouseTranf);
         app.post("/getwarehouseTransfer",warehousetranf.getwarehouseTransfer);
         //#############################################################################################
 
-         //#################### Warehouse opening stock / ##########################
+        //#################### Warehouse opening stock / ##########################
         app.post("/getopeningstock",wareopenibgstok.getopeningstock);
         app.post("/saveWareOpeningStock",wareopenibgstok.saveWareOpeningStock);
         //#############################################################################################
 
-         //#################### Transpoter Master / ##########################
+        //#################### Transpoter Master / ##########################
         app.post("/getTranspoter",transpoter.getTranspoter);
         app.post("/saveTranspoter",transpoter.saveTranspoter);
         //#############################################################################################
 
+        //#################### ZAID / ###########################
+
         //#################### API TEST / ##########################
     }
-
-
 
     module.exports = appRouter;
