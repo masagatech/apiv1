@@ -20,7 +20,7 @@ expense.getExpenseBudgetDetails = function getExpenseBudget(req, res, done) {
     }, 1)
 }
 
-expense.saveExpenseBudget = function saveExpense(req, res, done) {
+expense.saveExpenseBudget = function saveExpenseBudget(req, res, done) {
     db.callFunction("select " + globals.schema("funsave_expensebudget") + "($1::json);", [req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {

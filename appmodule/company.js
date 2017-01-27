@@ -4,7 +4,7 @@ var globals = require("../globals.js");
 
 var company = module.exports = {};
 
-company.getCompany = function getCompany(req, res, done) {
+company.getCompanyOld = function getCompany(req, res, done) {
     var params = [];
     var paramstr = "";
     var countr  = 1;
@@ -27,6 +27,14 @@ company.getCompany = function getCompany(req, res, done) {
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
     }, countr)
+}
+
+company.getCompany = function getCompany(req, res, done) {
+    db.callProcedure("select " + globals.schema("funget_company") + "($1,$2::json);", ['company', req.body], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    }, 1)
 }
 
 company.saveCompany = function saveCompany(req, res, done) {
