@@ -51,7 +51,8 @@
         //#################### VIVEK / ##########################
 
         //#################### Validation / ##########################
-        app.post("/checkDateValidate", valid.checkdatevalidate);
+        app.post("/checkFormValid", valid.checkFormValid);
+        app.post("/checkDateValid", valid.checkDateValid);
         //#############################################################################################
 
         //#################### Login / ##########################
@@ -62,6 +63,7 @@
         //#################### Menu / ##########################
         app.post("/getMenuHead", menu.getMenuHead);
         app.post("/getMenuDetails", menu.getMenu);
+        app.post("/getMenuAccess", menu.getMenuAccess);
         //#############################################################################################
 
         //#################### Expense Budget /  ##########################	
