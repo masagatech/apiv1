@@ -35,6 +35,7 @@
     var wareopenibgstok = require('../appmodule/wareopeningstock.js');
     var transpoter = require('../appmodule/transpoter.js');
     var auditlock = require('../appmodule/auditlock.js');
+    var invtorylocal = require('../appmodule/invlocation.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -260,7 +261,11 @@
         app.post("/getTranspoter",transpoter.getTranspoter);
         app.post("/saveTranspoter",transpoter.saveTranspoter);
         //#############################################################################################
-
+        
+        //#################### Inventroy Location / ##########################
+        app.post("/Inventoryloc",invtorylocal.Inventoryloc);
+        app.post("/saveLocation",invtorylocal.saveLocation);
+        //#############################################################################################
         //#################### ZAID / ###########################
 
         //#################### API TEST / ##########################
