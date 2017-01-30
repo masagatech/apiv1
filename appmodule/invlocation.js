@@ -23,9 +23,9 @@ Invlocal.saveLocation = function saveLocation(req, res, done)
 
 Invlocal.getInventoryloc = function getInventoryloc(req, res, done)
 {
-    db.callProcedure("select " + globals.schema("funget_inventorylocation") + "($1,$2::json);", ['invlo', req.body], function(data) {
+    db.callProcedure("select " + globals.schema("funget_inventorylocation") + "($1,$2,$3::json);", ['invlo','invlo1', req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
-    }, 1)
+    }, 2)
 }
