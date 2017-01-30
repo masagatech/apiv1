@@ -5,7 +5,7 @@ var Invlocal = module.exports = {};
 
 Invlocal.Inventoryloc = function Inventoryloc(req, res, done)
 {
-    db.callProcedure("select " + globals.schema("funget_inventoryope") + "($1,$2::json);", ['acg', req.body], function(data) {
+    db.callProcedure("select " + globals.schema("funget_inventoryope") + "($1,$2::json);", ['invlo', req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
@@ -19,4 +19,13 @@ Invlocal.saveLocation = function saveLocation(req, res, done)
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
     })
+}
+
+Invlocal.getInventoryloc = function getInventoryloc(req, res, done)
+{
+    db.callProcedure("select " + globals.schema("funget_inventorylocation") + "($1,$2::json);", ['invlo', req.body], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    }, 1)
 }

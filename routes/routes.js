@@ -265,6 +265,7 @@
         //#################### Inventroy Location / ##########################
         app.post("/Inventoryloc",invtorylocal.Inventoryloc);
         app.post("/saveLocation",invtorylocal.saveLocation);
+         app.post("/getInventoryloc",invtorylocal.getInventoryloc);
         //#############################################################################################
         //#################### ZAID / ###########################
 
