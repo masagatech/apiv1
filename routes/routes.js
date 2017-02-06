@@ -36,6 +36,7 @@
     var transpoter = require('../appmodule/transpoter.js');
     var auditlock = require('../appmodule/auditlock.js');
     var invtorylocal = require('../appmodule/invlocation.js');
+    var material = require('../appmodule/materialmaster.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -267,6 +268,11 @@
         app.post("/saveLocation",invtorylocal.saveLocation);
          app.post("/getInventoryloc",invtorylocal.getInventoryloc);
         //#############################################################################################
+
+        //#################### Inventroy Location / ##########################
+        app.post("/savematerialMaster",material.savematerialMaster);
+        app.post("/getmaterialMaster",material.getmaterialMaster);
+         //#############################################################################################
         //#################### ZAID / ###########################
 
         //#################### API TEST / ##########################
