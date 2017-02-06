@@ -15,9 +15,9 @@ attribute.saveAttribute=function saveAttribute(req, res, done)
 
 
 attribute.getAttribute = function getAttribute(req, res, done) {
-    db.callProcedure("select " + globals.schema("funget_attribute") + "($1,$2::json);", ['atr', req.body], function(data) {
+    db.callProcedure("select " + globals.schema("funget_attribute") + "($1,$2,$3::json);", ['atr1','atr2', req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
-    }, 1)
+    }, 2)
 }
