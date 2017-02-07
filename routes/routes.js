@@ -27,7 +27,7 @@
     var attach = require('../appmodule/attach.js');
     var fileupload = require('../appmodule/fileupload.js');
     var adrbok = require('../appmodule/addressbook.js');
-    var dcmaster = require('../appmodule/dcmaster.js');
+    var sale = require('../appmodule/saleorder.js');
     var warehouse = require('../appmodule/warehouse.js');
     var customer = require('../appmodule/customer.js');
     var vendor = require('../appmodule/vendor.js');
@@ -224,10 +224,10 @@
         //#############################################################################################
 
         //#################### DC Master / ##########################
-        app.post("/getdcdropdetails", dcmaster.getdcdropdetails);
-        app.post("/getdcitemsdetails", dcmaster.getdcitemsdetails);
-        app.post("/saveDcMaster", dcmaster.saveDcMaster);
-        app.post("/getdcdetails", dcmaster.getdcdetails);
+        app.post("/salesorderdetails", sale.salesorderdetails);
+        app.post("/getdcitemsdetails", sale.getdcitemsdetails);
+        app.post("/saveDcMaster", sale.saveDcMaster);
+        app.post("/getdcdetails", sale.getdcdetails);
         //#############################################################################################
 
         //#################### Warehouse Master / ##########################
