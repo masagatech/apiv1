@@ -193,8 +193,8 @@
 
         //#################### Bank Payment / ##########################
         app.post("/getBankMaster", bankPayment.getBankMaster);
-        app.post("/savebankpayment", bankPayment.savebankpayment);
-        app.post("/getBankPayview", bankPayment.getBankPayview);
+        app.post("/saveBankPayment", bankPayment.saveBankPayment);
+        app.post("/getBankPayment", bankPayment.getBankPayment);
         //#############################################################################################
 
         //#################### items Master / ##########################
