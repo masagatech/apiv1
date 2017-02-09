@@ -5,11 +5,28 @@ var globals = require("../globals.js");
 var debitnote = module.exports = {};
 
 debitnote.getDebitNote = function getDebitNote(req, res, done) {
-    db.callProcedure("select " + globals.schema("funget_debitnote") + "($1,$2::json);", ['debitnote', req.body], function(data) {
+    var params = [];
+    var paramstr = "";
+    var countr  = 1;
+    
+    switch (req.body.flag) {
+        case "docrange":
+            params = ['dn','dn1', req.body];
+            paramstr = "($1,$2,$3::json);";
+            countr = 2;
+            break;
+        default:
+            params = ['dn', req.body];
+            paramstr = "($1,'a',$2::json);";
+            countr = 1;
+            break;
+    }
+
+    db.callProcedure("select " + globals.schema("funget_debitnote") + paramstr,params, function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
-    }, 1)
+    }, countr)
 }
 
 debitnote.saveDebitNote = function saveDebitNote(req, res, done) {
