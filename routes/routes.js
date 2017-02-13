@@ -188,7 +188,7 @@
         //#################### Bank Reciept / ##########################
         app.post("/getBankMaster", bankreceipt.getBankMaster);
         app.post("/getBankReceipt", bankreceipt.getBankReceipt);
-        app.post("/saveBankReciept", bankreceipt.saveBankReciept);
+        app.post("/saveBankReceipt", bankreceipt.saveBankReceipt);
         //#############################################################################################
 
         //#################### Bank Payment / ##########################
