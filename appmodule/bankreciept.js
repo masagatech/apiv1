@@ -43,7 +43,7 @@ bankreceipt.getBankReceipt = function getBankReceipt(req, res, done) {
     }, countr)
 }
 
-bankreceipt.saveBankReciept = function saveBankReciept(req, res, done) {
+bankreceipt.saveBankReceipt = function saveBankReciept(req, res, done) {
     db.callFunction("select " + globals.schema("funsave_bankreceipt") + "($1::json);", [req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {

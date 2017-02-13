@@ -27,7 +27,7 @@ jv.getjv = function getjv(req, res, done) {
             break;
     }
 
-    db.callProcedure("select " + globals.schema("funget_jv") + paramstr,params, function(data) {
+    db.callProcedure("select " + globals.schema("funget_jv") + paramstr, params, function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
