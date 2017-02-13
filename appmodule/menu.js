@@ -12,7 +12,7 @@ menu.getMenuHead = function getMenuHead(req, res, done) {
     }, 3)
 }
 
-menu.getMenu = function getMenu(req, res, done) {
+menu.getMenuDetails = function getMenuDetails(req, res, done) {
     db.callProcedure("select " + globals.schema("funget_menumaster") + "($1,'a','b',$2::json);", ['head', req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
