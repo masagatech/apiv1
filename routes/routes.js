@@ -18,7 +18,7 @@
     var expensebudget = require('../appmodule/expensebudget.js');
 
     var acgroup = require('../appmodule/acgroup.js');
-    var bankrecipt = require('../appmodule/bankreciept.js');
+    var bankreceipt = require('../appmodule/bankreciept.js');
     var bankPayment = require('../appmodule/bankpayment.js');
     var itemsmaster = require('../appmodule/itemsmaster.js');
     var purchaseord = require('../appmodule/purchaseorder.js');
@@ -64,7 +64,7 @@
 
         //#################### Menu / ##########################
         app.post("/getMenuHead", menu.getMenuHead);
-        app.post("/getMenuDetails", menu.getMenu);
+        app.post("/getMenuDetails", menu.getMenuDetails);
         app.post("/getMenuAccess", menu.getMenuAccess);
         //#############################################################################################
 
@@ -186,15 +186,15 @@
         //#############################################################################################
 
         //#################### Bank Reciept / ##########################
-        app.post("/getBankMaster", bankrecipt.getBankMaster);
-        app.post("/savebankreciept", bankrecipt.savebankreciept);
-        app.post("/getbankreciptview", bankrecipt.getbankreciptview);
+        app.post("/getBankMaster", bankreceipt.getBankMaster);
+        app.post("/getBankReceipt", bankreceipt.getBankReceipt);
+        app.post("/saveBankReciept", bankreceipt.saveBankReciept);
         //#############################################################################################
 
         //#################### Bank Payment / ##########################
         app.post("/getBankMaster", bankPayment.getBankMaster);
-        app.post("/saveBankPayment", bankPayment.saveBankPayment);
         app.post("/getBankPayment", bankPayment.getBankPayment);
+        app.post("/saveBankPayment", bankPayment.saveBankPayment);
         //#############################################################################################
 
         //#################### items Master / ##########################
