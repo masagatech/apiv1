@@ -171,8 +171,14 @@
         //#############################################################################################
 
         //#################### Budget /  ##########################
-        app.post("/getBudget", budget.getBudget);
-        app.post("/saveBudget", budget.saveBudget);
+        app.post("/getInitiate", budget.getInitiate);
+        app.post("/saveInitiate", budget.saveInitiate);
+        
+        app.post("/getCommittee", budget.getCommittee);
+        app.post("/saveCommittee", budget.saveCommittee);
+        
+        app.post("/getOwnership", budget.getOwnership);
+        app.post("/saveOwnership", budget.saveOwnership);
         //#############################################################################################
 
         //#################### Expense Budget /  ##########################
