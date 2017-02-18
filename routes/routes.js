@@ -38,6 +38,7 @@
     var auditlock = require('../appmodule/auditlock.js');
     var invtorylocal = require('../appmodule/invlocation.js');
     var material = require('../appmodule/materialmaster.js');
+    var stockledger = require('../appmodule/whstockledger.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -286,6 +287,11 @@
         app.post("/savematerialMaster",material.savematerialMaster);
         app.post("/getmaterialMaster",material.getmaterialMaster);
          //#############################################################################################
+
+        //#################### Warehouse Stock Ledger / ###########################
+        app.post("/getStockLedger",stockledger.getStockLedger);
+        //####################################################################
+
         //#################### ZAID / ###########################
 
         //#################### API TEST / ##########################
