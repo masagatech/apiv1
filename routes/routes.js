@@ -166,7 +166,7 @@
         app.post("/saveExpenseCtrlMap", expensectrlcentermap.saveExpenseCtrlMap);
         //#############################################################################################
 
-        //#################### Expense Voucher /  ##########################	
+        //#################### Expense Voucher /  ##########################
         app.post("/getAllExpenseVoucher", expensevoucher.getAllExpenseVoucher);
         app.post("/getExpenseVoucherDetails", expensevoucher.getExpenseVoucherDetails);
         app.post("/saveExpenseVoucher", expensevoucher.saveExpenseVoucher);
@@ -178,6 +178,9 @@
         
         app.post("/getCommittee", budget.getCommittee);
         app.post("/saveCommittee", budget.saveCommittee);
+        
+        app.post("/getEnvelope", budget.getEnvelope);
+        app.post("/saveEnvelope", budget.saveEnvelope);
         
         app.post("/getOwnership", budget.getOwnership);
         app.post("/saveOwnership", budget.saveOwnership);
