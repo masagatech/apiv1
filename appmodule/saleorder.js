@@ -30,7 +30,7 @@ saleorder.getdcdetails = function getdcdetails(req, res, done) {
 
 saleorder.saveDcMaster=function saveDcMaster(req, res, done)
 {
-    db.callFunction("select " + globals.schema("funsave_dcmaster") + "($1::json);", [req.body], function(data) {
+    db.callFunction("select " + globals.schema("funsave_salesorder") + "($1::json);", [req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
