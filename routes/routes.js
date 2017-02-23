@@ -39,6 +39,7 @@
     var invtorylocal = require('../appmodule/invlocation.js');
     var material = require('../appmodule/materialmaster.js');
     var stockledger = require('../appmodule/whstockledger.js');
+    var transferres = require('../appmodule/transferrestriction.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -290,6 +291,11 @@
 
         //#################### Warehouse Stock Ledger / ###########################
         app.post("/getStockLedger",stockledger.getStockLedger);
+        //####################################################################
+
+        //#################### Transfer Restriction / ###########################
+        app.post("/saveTransferRestriction",transferres.saveTransferRestriction);
+        app.post("/getTransferRestriction",transferres.getTransferRestriction);
         //####################################################################
 
         //#################### ZAID / ###########################
