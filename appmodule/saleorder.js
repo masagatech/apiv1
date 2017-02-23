@@ -20,8 +20,16 @@ saleorder.getdcitemsdetails = function getdcitemsdetails(req, res, done) {
     }, 1)
 }
 
-saleorder.getdcdetails = function getdcdetails(req, res, done) {
-    db.callProcedure("select " + globals.schema("funget_dcdetails") + "($1,$2,$3::json);", ['dcd','dcd1', req.body], function(data) {
+saleorder.getPendingDocumentNo = function getPendingDocumentNo(req, res, done) {
+    db.callProcedure("select " + globals.schema("funget_pendingorderdocno") + "($1,$2::json);", ['dc', req.body], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    }, 1)
+}
+
+saleorder.getPendingOrderDetails = function getPendingOrderDetails(req, res, done) {
+    db.callProcedure("select " + globals.schema("funget_orderpendingdetails") + "($1,$2,$3::json);", ['dcd','dcd1', req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);

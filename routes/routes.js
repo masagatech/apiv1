@@ -242,7 +242,8 @@
         app.post("/salesorderdetails", sale.salesorderdetails);
         app.post("/getdcitemsdetails", sale.getdcitemsdetails);
         app.post("/saveDcMaster", sale.saveDcMaster);
-        app.post("/getdcdetails", sale.getdcdetails);
+        app.post("/getPendingOrderDetails", sale.getPendingOrderDetails);
+        app.post("/getPendingDocumentNo", sale.getPendingDocumentNo);
         //#############################################################################################
 
         //#################### Warehouse Master / ##########################
