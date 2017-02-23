@@ -74,6 +74,41 @@ budget.saveCommittee = function saveCommittee(req, res, done) {
     })
 }
 
+// Envelope
+
+budget.getEnvelope = function geEnvelope(req, res, done) {
+    var params = [];
+    var paramstr = "";
+    var countr  = 1;
+    
+    switch (req.body.flag) {
+        case "all":
+            params = ['bdgenv','bdgenv1', req.body];
+            paramstr = "($1,$2,$3::json);";
+            countr = 2;
+            break;
+        default:
+            params = ['bdgenv', req.body];
+            paramstr = "($1,'a',$2::json);";
+            countr = 1;
+            break;
+    }
+
+    db.callProcedure("select " + globals.schema("funget_bdgenv") + paramstr, params, function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    }, countr)
+}
+
+budget.saveEnvelope = function saveEnvelope(req, res, done) {
+    db.callFunction("select " + globals.schema("funsave_bdgenv") + "($1::json);", [req.body], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    })
+}
+
 // Ownership
 
 budget.getOwnership = function getOwnership(req, res, done) {
