@@ -129,7 +129,7 @@ budget.getOwnership = function getOwnership(req, res, done) {
             break;
     }
 
-    db.callProcedure("select " + globals.schema("funget_bdgownership") + paramstr, params, function(data) {
+    db.callProcedure("select " + globals.schema("funget_bdgowner") + paramstr, params, function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
@@ -137,7 +137,7 @@ budget.getOwnership = function getOwnership(req, res, done) {
 }
 
 budget.saveOwnership = function saveCommittee(req, res, done) {
-    db.callFunction("select " + globals.schema("funsave_bdgownership") + "($1::json);", [req.body], function(data) {
+    db.callFunction("select " + globals.schema("funsave_bdgowner") + "($1::json);", [req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
