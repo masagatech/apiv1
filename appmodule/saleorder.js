@@ -44,3 +44,12 @@ saleorder.saveDcMaster=function saveDcMaster(req, res, done)
         rs.resp(res, 401, "error : " + err);
     })
 }
+
+saleorder.saveConfirmOrder=function saveConfirmOrder(req, res, done)
+{
+    db.callFunction("select " + globals.schema("funsave_salesorderconfirm") + "($1::json,$2::int);", [req.body,req.body.docno], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    })
+}

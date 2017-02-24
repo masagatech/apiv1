@@ -242,12 +242,13 @@
         app.post("/getAddress", adrbok.getAddress);
         //#############################################################################################
 
-        //#################### DC Master / ##########################
+        //#################### Sales Order / ##########################
         app.post("/salesorderdetails", sale.salesorderdetails);
         app.post("/getdcitemsdetails", sale.getdcitemsdetails);
         app.post("/saveDcMaster", sale.saveDcMaster);
         app.post("/getPendingOrderDetails", sale.getPendingOrderDetails);
         app.post("/getPendingDocumentNo", sale.getPendingDocumentNo);
+        app.post("/saveConfirmOrder", sale.saveConfirmOrder);
         //#############################################################################################
 
         //#################### Warehouse Master / ##########################
