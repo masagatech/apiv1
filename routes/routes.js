@@ -44,12 +44,12 @@
     var appRouter = function(app) {
         //#################### API Details / ##########################
         var APIInfo = {
-            ver: "1.0",
-            type: "REST API",
-            requestdata: "JSON",
-            responsedata: "JSON",
-        }
-        //#############################################################################################
+                ver: "1.0",
+                type: "REST API",
+                requestdata: "JSON",
+                responsedata: "JSON",
+            }
+            //#############################################################################################
 
         //#############################################################################################
 
@@ -63,7 +63,7 @@
         //#################### Login / ##########################
         app.post("/getLogin", user.getLogin);
         app.post("/getLogout", user.getLogout)
-        //#############################################################################################
+            //#############################################################################################
 
         //#################### Menu / ##########################
         app.post("/getMenuHead", menu.getMenuHead);
@@ -92,6 +92,7 @@
 
         //#################### Common / ##########################
         app.post("/getAutoData", common.getAutoData);
+        app.get("/getAutoDataGET", common.getAutoDataGET);
         app.post("/checkValidate", common.checkValidate);
 
         app.post("/getMOM", common.getMOM);
@@ -159,7 +160,7 @@
         app.post("/getRBIDetails", rb.getRBIDetails);
         app.post("/saveRBIDetails", rb.saveRBIDetails);
         //#############################################################################################
-        
+
         //#################### Expense Control Center Mapping /  ##########################	
         app.post("/getAllExpenseCtrlMap", expensectrlcentermap.getAllExpenseCtrlMap);
         app.post("/getExpenseCtrlMap", expensectrlcentermap.getExpenseCtrlMap);
@@ -175,13 +176,13 @@
         //#################### Budget /  ##########################
         app.post("/getInitiate", budget.getInitiate);
         app.post("/saveInitiate", budget.saveInitiate);
-        
+
         app.post("/getCommittee", budget.getCommittee);
         app.post("/saveCommittee", budget.saveCommittee);
-        
+
         app.post("/getEnvelope", budget.getEnvelope);
         app.post("/saveEnvelope", budget.saveEnvelope);
-        
+
         app.post("/getOwnership", budget.getOwnership);
         app.post("/saveOwnership", budget.saveOwnership);
         //#############################################################################################
@@ -201,8 +202,8 @@
         //#############################################################################################
 
         //#################### Audit Lock / ##########################
-        app.post("/getAuditLockSetting",auditlock.getAuditLockSetting);
-        app.post("/saveAuditLockAction",auditlock.saveAuditLockAction);
+        app.post("/getAuditLockSetting", auditlock.getAuditLockSetting);
+        app.post("/saveAuditLockAction", auditlock.saveAuditLockAction);
         //#############################################################################################
 
         //#################### VIVEK / ##########################
@@ -250,56 +251,56 @@
         //#############################################################################################
 
         //#################### Warehouse Master / ##########################
-        app.post("/saveWarehouse",warehouse.saveWarehouse);
-        app.post("/getwarehouse",warehouse.getwarehouse);
+        app.post("/saveWarehouse", warehouse.saveWarehouse);
+        app.post("/getwarehouse", warehouse.getwarehouse);
         //#############################################################################################
 
-         //#################### Customer Master / ##########################
-        app.post("/saveCustomer",customer.saveCustomer);
-        app.post("/getcustomerdrop",customer.getcustomerdrop);
-        app.post("/getcustomer",customer.getcustomer);
-        app.post("/getctrldetails",customer.getctrldetails);
+        //#################### Customer Master / ##########################
+        app.post("/saveCustomer", customer.saveCustomer);
+        app.post("/getcustomerdrop", customer.getcustomerdrop);
+        app.post("/getcustomer", customer.getcustomer);
+        app.post("/getctrldetails", customer.getctrldetails);
         //#############################################################################################
 
         //#################### Vendor Master / ##########################
-        app.post("/saveVendor",vendor.saveVendor);
-        app.post("/getvendordrop",vendor.getvendordrop);
-        app.post("/getvendor",vendor.getvendor);
+        app.post("/saveVendor", vendor.saveVendor);
+        app.post("/getvendordrop", vendor.getvendordrop);
+        app.post("/getvendor", vendor.getvendor);
         //#############################################################################################
 
         //#################### Warehouse Transfer / ##########################
-        app.post("/saveWarehouseTranf",warehousetranf.saveWarehouseTranf);
-        app.post("/getwarehouseTransfer",warehousetranf.getwarehouseTransfer);
+        app.post("/saveWarehouseTranf", warehousetranf.saveWarehouseTranf);
+        app.post("/getwarehouseTransfer", warehousetranf.getwarehouseTransfer);
         //#############################################################################################
 
         //#################### Warehouse opening stock / ##########################
-        app.post("/getopeningstock",wareopenibgstok.getopeningstock);
-        app.post("/saveWareOpeningStock",wareopenibgstok.saveWareOpeningStock);
+        app.post("/getopeningstock", wareopenibgstok.getopeningstock);
+        app.post("/saveWareOpeningStock", wareopenibgstok.saveWareOpeningStock);
         //#############################################################################################
 
         //#################### Transpoter Master / ##########################
-        app.post("/getTranspoter",transpoter.getTranspoter);
-        app.post("/saveTranspoter",transpoter.saveTranspoter);
-        //#############################################################################################
-        
-        //#################### Inventroy Location / ##########################
-        app.post("/Inventoryloc",invtorylocal.Inventoryloc);
-        app.post("/saveLocation",invtorylocal.saveLocation);
-         app.post("/getInventoryloc",invtorylocal.getInventoryloc);
+        app.post("/getTranspoter", transpoter.getTranspoter);
+        app.post("/saveTranspoter", transpoter.saveTranspoter);
         //#############################################################################################
 
         //#################### Inventroy Location / ##########################
-        app.post("/savematerialMaster",material.savematerialMaster);
-        app.post("/getmaterialMaster",material.getmaterialMaster);
-         //#############################################################################################
+        app.post("/Inventoryloc", invtorylocal.Inventoryloc);
+        app.post("/saveLocation", invtorylocal.saveLocation);
+        app.post("/getInventoryloc", invtorylocal.getInventoryloc);
+        //#############################################################################################
+
+        //#################### Inventroy Location / ##########################
+        app.post("/savematerialMaster", material.savematerialMaster);
+        app.post("/getmaterialMaster", material.getmaterialMaster);
+        //#############################################################################################
 
         //#################### Warehouse Stock Ledger / ###########################
-        app.post("/getStockLedger",stockledger.getStockLedger);
+        app.post("/getStockLedger", stockledger.getStockLedger);
         //####################################################################
 
         //#################### Transfer Restriction / ###########################
-        app.post("/saveTransferRestriction",transferres.saveTransferRestriction);
-        app.post("/getTransferRestriction",transferres.getTransferRestriction);
+        app.post("/saveTransferRestriction", transferres.saveTransferRestriction);
+        app.post("/getTransferRestriction", transferres.getTransferRestriction);
         //####################################################################
 
         //#################### ZAID / ###########################

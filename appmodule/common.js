@@ -12,6 +12,14 @@ common.getAutoData = function getAutoData(req, res, done) {
     }, 1)
 }
 
+common.getAutoDataGET = function getAutoDataGET(req, res, done) {
+    db.callProcedure("select " + globals.schema("funget_auto") + "($1,$2::json);", ['auto', req.query], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    }, 1)
+}
+
 common.checkValidate = function checkValidate(req, res, done) {
     db.callProcedure("select " + globals.schema("funcheck_validate") + "($1,$2::json);", ['auto', req.body], function(data) {
         rs.resp(res, 200, data.rows);
