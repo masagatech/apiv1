@@ -249,6 +249,7 @@
         app.post("/getPendingOrderDetails", sale.getPendingOrderDetails);
         app.post("/getPendingDocumentNo", sale.getPendingDocumentNo);
         app.post("/saveConfirmOrder", sale.saveConfirmOrder);
+        app.post("/getSalesOrderView", sale.getSalesOrderView);
         //#############################################################################################
 
         //#################### Warehouse Master / ##########################
