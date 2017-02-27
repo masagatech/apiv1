@@ -40,6 +40,7 @@
     var material = require('../appmodule/materialmaster.js');
     var stockledger = require('../appmodule/whstockledger.js');
     var transferres = require('../appmodule/transferrestriction.js');
+    var generteinvoice = require('../appmodule/generateinvoice.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -250,6 +251,10 @@
         app.post("/getPendingDocumentNo", sale.getPendingDocumentNo);
         app.post("/saveConfirmOrder", sale.saveConfirmOrder);
         app.post("/getSalesOrderView", sale.getSalesOrderView);
+        //#############################################################################################
+
+        //#################### Generate Invoice / ##########################
+        app.post("/getdocumentno",generteinvoice.getdocumentno)
         //#############################################################################################
 
         //#################### Warehouse Master / ##########################
