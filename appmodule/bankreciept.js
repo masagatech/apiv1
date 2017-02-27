@@ -4,7 +4,6 @@ var globals = require("../globals.js");
 
 var bankreceipt = module.exports = {};
 
-
 bankreceipt.getBankMaster = function getBankMaster(req, res, done) {
     db.callProcedure("select " + globals.schema("funget_auto") + "($1,$2::json);", ['auto', req.body], function(data) {
         rs.resp(res, 200, data.rows);
@@ -20,23 +19,23 @@ bankreceipt.getBankReceipt = function getBankReceipt(req, res, done) {
     
     switch (req.body.flag) {
         case "all":
-            params = ['bp','bp1', req.body];
+            params = ['br','br1', req.body];
             paramstr = "($1,$2,$3::json);";
             countr = 2;
             break;
         case "details":
-            params = ['bp','bp1', req.body];
+            params = ['br','br1', req.body];
             paramstr = "($1,$2,$3::json);";
             countr = 2;
             break;
         default:
-            params = ['bp', req.body];
+            params = ['br', req.body];
             paramstr = "($1,'a',$2::json);";
             countr = 1;
             break;
     }
 
-    db.callProcedure("select " + globals.schema("funget_bankreciept") + paramstr,params, function(data) {
+    db.callProcedure("select " + globals.schema("funget_bankreciept") + paramstr, params, function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);

@@ -2,9 +2,9 @@ var db = require("../db/dbservice.js");
 var rs = require("./util/resp.js");
 var globals = require("../globals.js");
 
-var bankPay = module.exports = {};
+var bankpayment = module.exports = {};
 
-bankPay.getBankMaster = function getBankMaster(req, res, done) {
+bankpayment.getBankMaster = function getBankMaster(req, res, done) {
     db.callProcedure("select " + globals.schema("funget_auto") + "($1,$2::json);", ['auto', req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
@@ -12,7 +12,7 @@ bankPay.getBankMaster = function getBankMaster(req, res, done) {
     }, 1)
 }
 
-bankPay.getBankPayment = function getBankPayment(req, res, done) {
+bankpayment.getBankPayment = function getBankPayment(req, res, done) {
     var params = [];
     var paramstr = "";
     var countr  = 1;
@@ -35,14 +35,14 @@ bankPay.getBankPayment = function getBankPayment(req, res, done) {
             break;
     }
 
-    db.callProcedure("select " + globals.schema("funget_bankpayment") + paramstr,params, function(data) {
+    db.callProcedure("select " + globals.schema("funget_bankpayment") + paramstr, params, function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
     }, countr)
 }
 
-bankPay.saveBankPayment = function saveBankPayment(req, res, done) {
+bankpayment.saveBankPayment = function saveBankPayment(req, res, done) {
     db.callFunction("select " + globals.schema("funsave_bankpayment") + "($1::json);", [req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
