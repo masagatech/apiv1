@@ -189,9 +189,8 @@
         //#############################################################################################
 
         //#################### Expense Budget /  ##########################
-        app.post("/getAllExpenseBudget", expensebudget.getAllExpenseBudget);
-        app.post("/getExpenseBudgetDetails", expensebudget.getExpenseBudgetDetails);
-        app.post("/saveExpenseBudget", expensebudget.saveExpenseBudget);
+        app.post("/getStartForeCasting", expensebudget.getStartForeCasting);
+        app.post("/saveStartForeCasting", expensebudget.saveStartForeCasting);
         //#############################################################################################
 
         //#################### File Uploads /  ##########################	
