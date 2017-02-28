@@ -254,6 +254,7 @@
 
         //#################### Generate Invoice / ##########################
         app.post("/getdocumentno",generteinvoice.getdocumentno)
+        app.post("/saveGenerateInvoice",generteinvoice.saveGenerateInvoice)
         //#############################################################################################
 
         //#################### Warehouse Master / ##########################
