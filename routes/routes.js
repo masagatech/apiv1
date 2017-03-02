@@ -41,6 +41,8 @@
     var stockledger = require('../appmodule/whstockledger.js');
     var transferres = require('../appmodule/transferrestriction.js');
     var generteinvoice = require('../appmodule/generateinvoice.js');
+    var taxmaster = require('../appmodule/taxmaster.js');
+    var itemgroup = require('../appmodule/itemgroup.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -310,6 +312,15 @@
         app.post("/saveTransferRestriction", transferres.saveTransferRestriction);
         app.post("/getTransferRestriction", transferres.getTransferRestriction);
         //####################################################################
+
+         //#################### Tax Master / ###########################
+         app.post("/saveTaxMaster",taxmaster.saveTaxMaster);
+         app.post("/getTaxMaster",taxmaster.getTaxMaster);
+         //####################################################################
+
+        //#################### Item Group / ###########################
+         app.post("/getItemsname",itemgroup.getItemsname);
+         app.post("/saveItemsGroup",itemgroup.saveItemsGroup);
 
         //#################### ZAID / ###########################
 
