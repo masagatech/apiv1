@@ -112,28 +112,11 @@ budget.saveEnvelope = function saveEnvelope(req, res, done) {
 // Ownership
 
 budget.getOwnership = function getOwnership(req, res, done) {
-    var params = [];
-    var paramstr = "";
-    var countr  = 1;
-    
-    switch (req.body.flag) {
-        case "all":
-            params = ['bdgowner','bdgowner1', req.body];
-            paramstr = "($1,$2,$3::json);";
-            countr = 2;
-            break;
-        default:
-            params = ['bdgowner', req.body];
-            paramstr = "($1,'a',$2::json);";
-            countr = 1;
-            break;
-    }
-
-    db.callProcedure("select " + globals.schema("funget_bdgowner") + paramstr, params, function(data) {
+    db.callProcedure("select " + globals.schema("funget_bdgowner") + "($1,$2::json);", ['bdgowner', req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
-    }, countr)
+    }, 1)
 }
 
 budget.saveOwnership = function saveCommittee(req, res, done) {
