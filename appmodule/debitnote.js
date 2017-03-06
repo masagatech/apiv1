@@ -15,6 +15,11 @@ debitnote.getDebitNote = function getDebitNote(req, res, done) {
             paramstr = "($1,$2,$3::json);";
             countr = 2;
             break;
+        case "details":
+            params = ['dnd','dnd1', req.body];
+            paramstr = "($1,$2,$3::json);";
+            countr = 2;
+            break;
         default:
             params = ['dn', req.body];
             paramstr = "($1,'a',$2::json);";

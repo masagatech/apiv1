@@ -15,11 +15,11 @@ employee.getEmployeeOld = function getEmployee(req, res, done) {
 employee.getEmployee = function getEmployee(req, res, done) {
     var params = [];
     var paramstr = "";
-    var countr  = 1;
+    var countr = 1;
     
     switch (req.body.flag) {
         case "all":
-            params = ['emp','emp1', req.body];
+            params = ['emp', 'emp1', req.body];
             paramstr = "($1,$2,$3::json);";
             countr = 2;
             break;
@@ -30,7 +30,7 @@ employee.getEmployee = function getEmployee(req, res, done) {
             break;
     }
 
-    db.callProcedure("select " + globals.schema("funget_employee") + paramstr,params, function(data) {
+    db.callProcedure("select " + globals.schema("funget_employee") + paramstr, params, function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
