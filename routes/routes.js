@@ -5,6 +5,7 @@
     var fy = require('../appmodule/fy.js');
     var dynflds = require('../appmodule/dynamicfields.js');
     var user = require('../appmodule/user.js');
+    var usermaster = require('../appmodule/usermaster.js');
     var ur = require('../appmodule/userrights.js');
     var emp = require('../appmodule/employee.js');
     var dr = require('../appmodule/empdocrepo.js');
@@ -80,8 +81,10 @@
         //#############################################################################################
 
         //#################### User / ##########################
-        app.post("/getUsers", user.getUsers);
-        app.post("/saveUsers", user.saveUsers);
+        app.post("/getUserDetails", usermaster.getUserDetails);
+        app.post("/getUserGrid", usermaster.getUserGrid);
+        app.post("/saveUser", usermaster.saveUser);
+        
         app.post("/savePassword", user.savePassword);
         app.post("/saveSettings", user.saveSettings);
         app.post("/getSettings", user.getSettings);
