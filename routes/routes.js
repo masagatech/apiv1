@@ -194,6 +194,7 @@
         //#############################################################################################
 
         //#################### Expense Budget /  ##########################
+        app.post("/viewStartForeCasting", expensebudget.viewStartForeCasting);
         app.post("/getStartForeCasting", expensebudget.getStartForeCasting);
         app.post("/saveStartForeCasting", expensebudget.saveStartForeCasting);
         //#############################################################################################
