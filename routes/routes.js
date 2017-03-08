@@ -44,6 +44,7 @@
     var generteinvoice = require('../appmodule/generateinvoice.js');
     var taxmaster = require('../appmodule/taxmaster.js');
     var itemgroup = require('../appmodule/itemgroup.js');
+    var accountled = require('../appmodule/accountledger.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -324,6 +325,9 @@
          app.post("/getItemsname",itemgroup.getItemsname);
          app.post("/saveItemsGroup",itemgroup.saveItemsGroup);
 
+         //#################### Account Ledger / ###########################
+         app.post("/saveAccountLedger",accountled.saveAccountLedger)
+          app.post("/getAccountLedger",accountled.getAccountLedger)
         //#################### ZAID / ###########################
 
         //#################### API TEST / ##########################
