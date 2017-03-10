@@ -20,3 +20,11 @@ accountledger.getAccountLedger = function getAccountLedger(req, res, done) {
         rs.resp(res, 401, "error : " + err);
     }, 2)
 }
+
+accountledger.getAccountLedgeracinfo = function getAccountLedgeracinfo(req, res, done) {
+    db.callProcedure("select " + globals.schema("funget_accountledgeracinfo") + "($1,$2::json);", ['acg1', req.body], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    },1)
+}
