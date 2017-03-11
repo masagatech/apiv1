@@ -336,11 +336,12 @@
           //#################### GRN Outword / ###########################
           app.post("/getgrndetails",grnoutword.getgrndetails)
           app.post("/savegrnoutword",grnoutword.savegrnoutword)
+          app.post("/getviewdetails",grnoutword.getviewdetails)
 
            //#################### GRN Inword / ###########################
           app.post("/getgrninworddetails",grninword.getgrninworddetails)
           app.post("/savegrninword",grninword.savegrninword)
-
+          app.post("/getinwordviewdetails",grninword.getinwordviewdetails)
         //#################### ZAID / ###########################
 
         //#################### API TEST / ##########################
