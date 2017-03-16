@@ -19,6 +19,8 @@
     var expensevoucher = require('../appmodule/expensevoucher.js');
     var expensebudget = require('../appmodule/expensebudget.js');
 
+    var reports = require('../appmodule/reports.js');
+    var cashflow = require('../appmodule/cashflow.js');
     var acgroup = require('../appmodule/acgroup.js');
     var bankreceipt = require('../appmodule/bankreciept.js');
     var bankPayment = require('../appmodule/bankpayment.js');
@@ -195,6 +197,7 @@
         //#############################################################################################
 
         //#################### Expense Budget /  ##########################
+        app.post("/getMonthDetails", expensebudget.getMonthDetails);
         app.post("/viewStartForeCasting", expensebudget.viewStartForeCasting);
         app.post("/getStartForeCasting", expensebudget.getStartForeCasting);
         app.post("/saveStartForeCasting", expensebudget.saveStartForeCasting);
@@ -211,6 +214,15 @@
         //#################### Audit Lock / ##########################
         app.post("/getAuditLockSetting", auditlock.getAuditLockSetting);
         app.post("/saveAuditLockAction", auditlock.saveAuditLockAction);
+        //#############################################################################################
+
+        //#################### Cash Flow / ##########################
+        app.post("/getCashFlow", cashflow.getCashFlow);
+        app.post("/saveCashFlow", cashflow.saveCashFlow);
+        //#############################################################################################
+
+        //#################### Reports / ##########################
+        app.post("/getAPARReports", reports.getAPARReports);
         //#############################################################################################
 
         //#################### VIVEK / ##########################
