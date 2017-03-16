@@ -47,6 +47,8 @@
     var taxmaster = require('../appmodule/taxmaster.js');
     var itemgroup = require('../appmodule/itemgroup.js');
     var accountled = require('../appmodule/accountledger.js');
+    var grnoutword = require('../appmodule/grnoutword.js');
+    var grninword = require('../appmodule/grninword.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -340,7 +342,18 @@
 
          //#################### Account Ledger / ###########################
          app.post("/saveAccountLedger",accountled.saveAccountLedger)
-          app.post("/getAccountLedger",accountled.getAccountLedger)
+         app.post("/getAccountLedger",accountled.getAccountLedger)
+         app.post("/getAccountLedgeracinfo",accountled.getAccountLedgeracinfo)
+
+          //#################### GRN Outword / ###########################
+          app.post("/getgrndetails",grnoutword.getgrndetails)
+          app.post("/savegrnoutword",grnoutword.savegrnoutword)
+          app.post("/getviewdetails",grnoutword.getviewdetails)
+
+           //#################### GRN Inword / ###########################
+          app.post("/getgrninworddetails",grninword.getgrninworddetails)
+          app.post("/savegrninword",grninword.savegrninword)
+          app.post("/getinwordviewdetails",grninword.getinwordviewdetails)
         //#################### ZAID / ###########################
 
         //#################### API TEST / ##########################
