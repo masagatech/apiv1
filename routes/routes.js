@@ -19,9 +19,12 @@
     var expensevoucher = require('../appmodule/expensevoucher.js');
     var expensebudget = require('../appmodule/expensebudget.js');
 
+    var reports = require('../appmodule/reports.js');
+    var cashflow = require('../appmodule/cashflow.js');
     var acgroup = require('../appmodule/acgroup.js');
     var bankreceipt = require('../appmodule/bankreciept.js');
-    var bankPayment = require('../appmodule/bankpayment.js');
+    var bankpayment = require('../appmodule/bankpayment.js');
+    var bankreco = require('../appmodule/bankreco.js');
     var itemsmaster = require('../appmodule/itemsmaster.js');
     var purchaseord = require('../appmodule/purchaseorder.js');
     var attribute = require('../appmodule/attribute.js');
@@ -100,14 +103,16 @@
         app.post("/saveUserRights", ur.saveUserRights);
         //#############################################################################################
 
+        //#################### MOM / ##########################
+        app.post("/getMOM", common.getMOM);
+        app.post("/saveMOM", common.saveMOM);
+        //#############################################################################################
+
         //#################### Common / ##########################
-        app.post("/getAutoData", common.getAutoData);
         app.get("/getAutoDataGET", common.getAutoDataGET);
+        app.post("/getAutoData", common.getAutoData);
         app.post("/checkValidate", common.checkValidate);
 
-        app.post("/getMOM", common.getMOM);
-        app.post("/getMOMGrid", common.getMOMGrid);
-        app.post("/saveMOM", common.saveMOM);
         app.post("/getOtherDetails", common.getOtherDetails);
         app.post("/getisproceed", common.getisproceed);
         //#############################################################################################
@@ -149,9 +154,14 @@
         //#############################################################################################
 
         //#################### Bank Payment / ##########################
-        app.post("/getBankMaster", bankPayment.getBankMaster);
-        app.post("/getBankPayment", bankPayment.getBankPayment);
-        app.post("/saveBankPayment", bankPayment.saveBankPayment);
+        app.post("/getBankMaster", bankpayment.getBankMaster);
+        app.post("/getBankPayment", bankpayment.getBankPayment);
+        app.post("/saveBankPayment", bankpayment.saveBankPayment);
+        //#############################################################################################
+
+        //#################### Bank Reco / ##########################
+        app.post("/saveBankReco", bankreco.saveBankReco);
+        app.post("/getBankReco", bankreco.getBankReco);
         //#############################################################################################
 
         //#################### PDC / ##########################
@@ -198,6 +208,7 @@
         //#############################################################################################
 
         //#################### Expense Budget /  ##########################
+        app.post("/getMonthDetails", expensebudget.getMonthDetails);
         app.post("/viewStartForeCasting", expensebudget.viewStartForeCasting);
         app.post("/getStartForeCasting", expensebudget.getStartForeCasting);
         app.post("/saveStartForeCasting", expensebudget.saveStartForeCasting);
@@ -214,6 +225,15 @@
         //#################### Audit Lock / ##########################
         app.post("/getAuditLockSetting", auditlock.getAuditLockSetting);
         app.post("/saveAuditLockAction", auditlock.saveAuditLockAction);
+        //#############################################################################################
+
+        //#################### Cash Flow / ##########################
+        app.post("/getCashFlow", cashflow.getCashFlow);
+        app.post("/saveCashFlow", cashflow.saveCashFlow);
+        //#############################################################################################
+
+        //#################### Reports / ##########################
+        app.post("/getAPARReports", reports.getAPARReports);
         //#############################################################################################
 
         //#################### VIVEK / ##########################
