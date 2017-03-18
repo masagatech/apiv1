@@ -47,6 +47,7 @@
     var accountled = require('../appmodule/accountledger.js');
     var grnoutword = require('../appmodule/grnoutword.js');
     var grninword = require('../appmodule/grninword.js');
+    var purchaseinv = require('../appmodule/purchaseinv.js');
 
     var appRouter = function(app) {
         //#################### API Details / ##########################
@@ -234,6 +235,7 @@
         //#################### Purchase Order / ##########################
         app.post("/savePurchaseOrder", purchaseord.savePurchaseOrder);
         app.post("/getitemsDetails", purchaseord.getitemsDetails);
+        app.post("/getpurchaseview", purchaseord.getpurchaseview);
         //#############################################################################################
 
         //#################### Attribute / ##########################
@@ -342,7 +344,11 @@
           app.post("/getgrninworddetails",grninword.getgrninworddetails)
           app.post("/savegrninword",grninword.savegrninword)
           app.post("/getinwordviewdetails",grninword.getinwordviewdetails)
-        //#################### ZAID / ###########################
+
+           //#################### Purchase Invoice / ###########################
+           app.post("/getpurdocumentno",purchaseinv.getpurdocumentno)
+           app.post("/savePurchaseInvoice",purchaseinv.savePurchaseInvoice)
+           //#################### ZAID / ###########################
 
         //#################### API TEST / ##########################
     }
