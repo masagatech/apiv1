@@ -1,18 +1,11 @@
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-
-//service stuff
-//udp listner
-
-var express = require("express");
+var reportExpress = require("express");
+var reportApp = reportExpress();
 var bodyParser = require("body-parser");
-var app = express();
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+reportApp.use(bodyParser.json());
+reportApp.use(bodyParser.urlencoded({ extended: true }));
 
 //##############################################################################################
-app.all('/*', function(req, res, next) {
+reportApp.all('/*', function(req, res, next) {
     // CORS headers
     res.header("Access-Control-Allow-Origin", "*"); // restrict it to the required domain
 
@@ -25,24 +18,19 @@ app.all('/*', function(req, res, next) {
         next();
     }
 });
-//##############################################################################################	
-
-var routes = require("../routes/routes.js")(app);
+//##############################################################################################
+var reportsRoutes = require("../routes/report.js")(reportApp);
 
 //##############################################################################################
 
 // If no route is matched by now, it must be a 404
-app.use(function(req, res, next) {
+reportApp.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
 //#############################################################################################
 ///start API server
-
-
-var server = app.listen(3005, function() {
-    console.log("Listening on port for server %s...", server.address().port);
+var reportServer = reportApp.listen(3006, function() {
+    console.log("Listening on port for reports %s...", reportServer.address().port);
 });
-
-// var reportServer = require("./report-server.js");
