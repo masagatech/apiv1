@@ -233,7 +233,9 @@
         //#############################################################################################
 
         //#################### Reports / ##########################
-        app.post("/getAPARReports", reports.getAPARReports);
+        app.post("/getBankView", reports.getBankView);
+        app.post("/getBankBook", reports.getBankBook);
+        app.post("/getBankDashboard", reports.getBankDashboard);
         //#############################################################################################
 
         //#################### VIVEK / ##########################
