@@ -27,3 +27,11 @@ rpt.getBankDashboard = function getBankDashboard(req, res, done) {
         rs.resp(res, 401, "error : " + err);
     }, 1)
 }
+
+rpt.getLedger = function getLedger(req, res, done) {
+    db.callProcedure("select " + globals.schema("funget_rpt_ledger") + "($1,$2::json);", ['bdb', req.body], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    }, 1)
+}
