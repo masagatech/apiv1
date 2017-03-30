@@ -1,6 +1,8 @@
 var db = require("../../db/dbservice.js");
 var rs = require("./util/represp.js");
 var globals = require("../../globals.js");
+var Handlebars = require('handlebars');
+
 
 var testreport = module.exports = {};
 

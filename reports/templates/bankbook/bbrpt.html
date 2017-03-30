@@ -17,17 +17,17 @@
                         {{monthname}}
                     </td>
                     <td align="right">
-                        {{openingbal}}
+                        {{formatnumber openingbal}}
                     </td>
                     <td align="right">
-                        {{#format}}{{dramt}}{{/format}} 
-                        
+                        {{formatnumber dramt}}
+
                     </td>
                     <td align="right">
-                        {{cramt}}
+                        {{formatnumber cramt}}
                     </td>
                     <td align="right">
-                        {{closingbal}}
+                        {{formatnumber closingbal}}
                     </td>
                 </tr>
                 {{/data}}

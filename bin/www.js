@@ -45,4 +45,4 @@ var server = app.listen(3005, function() {
     console.log("Listening on port for server %s...", server.address().port);
 });
 
-// var reportServer = require("./report-server.js");
+var reportServer = require("./report-server.js");
