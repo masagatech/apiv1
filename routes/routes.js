@@ -237,6 +237,8 @@
         app.post("/getBankBook", reports.getBankBook);
         app.post("/getBankDashboard", reports.getBankDashboard);
         app.post("/getLedger", reports.getLedger);
+        app.post("/getProfitNLoss", reports.getProfitNLoss);
+        app.post("/getBalanceSheet", reports.getBalanceSheet);
         //#############################################################################################
 
         //#################### VIVEK / ##########################
