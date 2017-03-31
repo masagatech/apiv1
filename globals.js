@@ -12,3 +12,7 @@ global.reportTemplatePath = function reportTemplatePath() {
     console.log(__dirname + '\\reports\\templates');
     return __dirname + '\\reports\\templates';
 };
+global.reportRootPath = function reportRootPath() {
+    console.log(__dirname + '\\reports');
+    return __dirname + '\\reports';
+};
