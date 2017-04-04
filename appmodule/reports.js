@@ -75,3 +75,11 @@ rpt.getJVReport = function getJVReport(req, res, done) {
         rs.resp(res, 401, "error : " + err);
     }, 2)
 }
+
+rpt.getPDCReport = function getPDCReport(req, res, done) {
+    db.callProcedure("select " + globals.schema("funget_rpt_pdc") + "($1,$2,$3::json);", ['pdc1', 'pdc2', req.body], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    }, 2)
+}
