@@ -239,6 +239,9 @@
         app.post("/getLedger", reports.getLedger);
         app.post("/getProfitNLoss", reports.getProfitNLoss);
         app.post("/getBalanceSheet", reports.getBalanceSheet);
+        app.post("/getTrialBalance", reports.getTrialBalance);
+        app.post("/getDebtorsRpt", reports.getDebtorsRpt);
+        app.post("/getJVReport", reports.getJVReport);
         //#############################################################################################
 
         //#################### VIVEK / ##########################

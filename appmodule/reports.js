@@ -37,17 +37,41 @@ rpt.getLedger = function getLedger(req, res, done) {
 }
 
 rpt.getProfitNLoss = function getProfitNLoss(req, res, done) {
-    db.callProcedure("select " + globals.schema("funget_rpt_pnl") + "($1,$2::json);", ['pnl', req.body], function(data) {
+    db.callProcedure("select " + globals.schema("funget_rpt_pnl") + "($1,$2,$3::json);", ['pnl1', 'pnl2', req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
-    }, 1)
+    }, 2)
 }
 
 rpt.getBalanceSheet = function getBalanceSheet(req, res, done) {
-    db.callProcedure("select " + globals.schema("funget_rpt_bsr") + "($1,$2::json);", ['bsr', req.body], function(data) {
+    db.callProcedure("select " + globals.schema("funget_rpt_bsr") + "($1,$2,$3::json);", ['bsr1', 'bsr2', req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
-    }, 1)
+    }, 2)
+}
+
+rpt.getTrialBalance = function getTrialBalance(req, res, done) {
+    db.callProcedure("select " + globals.schema("funget_rpt_trialbalance") + "($1,$2,$3::json);", ['tbc1', 'tbc2', req.body], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    }, 2)
+}
+
+rpt.getDebtorsRpt = function getDebtorsRpt(req, res, done) {
+    db.callProcedure("select " + globals.schema("funget_rpt_debtors") + "($1,$2,$3::json);", ['dr1', 'dr2', req.body], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    }, 2)
+}
+
+rpt.getJVReport = function getJVReport(req, res, done) {
+    db.callProcedure("select " + globals.schema("funget_rpt_jv") + "($1,$2,$3::json);", ['jv1', 'jv2', req.body], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    }, 2)
 }
