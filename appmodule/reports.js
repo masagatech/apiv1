@@ -29,11 +29,11 @@ rpt.getBankDashboard = function getBankDashboard(req, res, done) {
 }
 
 rpt.getLedger = function getLedger(req, res, done) {
-    db.callProcedure("select " + globals.schema("funget_rpt_ledger") + "($1,$2::json);", ['bdb', req.body], function(data) {
+    db.callProcedure("select " + globals.schema("funget_rpt_ledger") + "($1,$2,$3::json);", ['ldr1', 'ldr2', req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);
-    }, 1)
+    }, 2)
 }
 
 rpt.getProfitNLoss = function getProfitNLoss(req, res, done) {
@@ -78,6 +78,14 @@ rpt.getJVReport = function getJVReport(req, res, done) {
 
 rpt.getPDCReport = function getPDCReport(req, res, done) {
     db.callProcedure("select " + globals.schema("funget_rpt_pdc") + "($1,$2,$3::json);", ['pdc1', 'pdc2', req.body], function(data) {
+        rs.resp(res, 200, data.rows);
+    }, function(err) {
+        rs.resp(res, 401, "error : " + err);
+    }, 2)
+}
+
+rpt.getSalesReport = function getSalesReport(req, res, done) {
+    db.callProcedure("select " + globals.schema("funget_rpt_sales") + "($1,$2,$3::json);", ['pdc1', 'pdc2', req.body], function(data) {
         rs.resp(res, 200, data.rows);
     }, function(err) {
         rs.resp(res, 401, "error : " + err);

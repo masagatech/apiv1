@@ -243,6 +243,7 @@
         app.post("/getDebtorsRpt", reports.getDebtorsRpt);
         app.post("/getJVReport", reports.getJVReport);
         app.post("/getPDCReport", reports.getPDCReport);
+        app.post("/getSalesReport", reports.getSalesReport);
         //#############################################################################################
 
         //#################### VIVEK / ##########################
