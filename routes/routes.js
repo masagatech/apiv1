@@ -2,6 +2,7 @@
     var items = require('../appmodule/items.js');
     var menu = require('../appmodule/menu.js');
     var common = require('../appmodule/common.js');
+    var auditlog = require('../appmodule/auditlog.js');
     var fy = require('../appmodule/fy.js');
     var dynflds = require('../appmodule/dynamicfields.js');
     var user = require('../appmodule/user.js');
@@ -12,6 +13,7 @@
     var company = require('../appmodule/company.js');
     var jv = require('../appmodule/jv.js');
     var debitnote = require('../appmodule/debitnote.js');
+    var creditnote = require('../appmodule/creditnote.js');
     var pdc = require('../appmodule/pdc.js');
     var rb = require('../appmodule/receiptbook.js');
     var budget = require('../appmodule/budget.js');
@@ -65,6 +67,11 @@
         //#############################################################################################
 
         //#################### VIVEK / ##########################
+
+        //#################### Audit Log / ##########################
+        app.post("/getAuditLog", auditlog.getAuditLog);
+        app.post("/saveAuditLog", auditlog.saveAuditLog);
+        //#############################################################################################
 
         //#################### Validation / ##########################
         app.post("/checkFormValid", valid.checkFormValid);
@@ -145,6 +152,11 @@
         //#################### Debit Note / ##########################
         app.post("/getDebitNote", debitnote.getDebitNote);
         app.post("/saveDebitNote", debitnote.saveDebitNote);
+        //#############################################################################################
+
+        //#################### Credit Note / ##########################
+        app.post("/getCreditNote", creditnote.getCreditNote);
+        app.post("/saveCreditNote", creditnote.saveCreditNote);
         //#############################################################################################
 
         //#################### Bank Reciept / ##########################

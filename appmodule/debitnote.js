@@ -10,7 +10,7 @@ debitnote.getDebitNote = function getDebitNote(req, res, done) {
     var countr  = 1;
     
     switch (req.body.flag) {
-        case "docrange":
+        case "daterange":
             params = ['dn','dn1', req.body];
             paramstr = "($1,$2,$3::json);";
             countr = 2;
