@@ -16,17 +16,6 @@ bankbook.getRptBankBook = function getRptBankBook(req, res, done) {
         };
 
         rs.resp('bankbook/bbrpt.html', _bbdata, req, res, done);
-
-
-
-        // for (var i = 0; i < _bbdata.data.length; i++) {
-        //     var items = _bbdata.data[i];
-        //     if (i < _bbdata.data.length - 1) {
-        //         var nextRow = _bbdata.data[i + 1];
-        //         nextRow.openingbal = parseFloat(items.closingbal);
-        //         nextRow.closingbal = ((parseFloat(nextRow.openingbal) + parseFloat(nextRow.dramt)) - parseFloat(nextRow.cramt));
-        //     }
-        // }
     }, function(err) {
         rs.resp('bankbook/bbrpt.html', { name: "pratik" }, req, res, done);
     }, 1)
